@@ -1,0 +1,27 @@
+<section class="bg-primary" id="events">
+  <div class="container">
+    <div class="row">
+      <div class="col-lg-8 mx-auto text-center">
+        <h2 class="section-heading text-white">Events Near You</h2>
+        <hr class="light">
+        <label for="location">Search Events Near</label>
+        <input type="text" class="form-control" id="location" placeholder="Enter location">
+        <hr>
+      </div>
+    </div>
+  </div>
+
+  <div class="col-lg-8 mx-auto text-center" id="map"
+       style="position: relative;overflow: hidden;display: block;height: 350px;">
+    <script>
+      function myMap() {
+        var mapOptions = {
+          center: new google.maps.LatLng(42.3408643, -71.0904566),
+          zoom: 14
+        }
+        var map = new google.maps.Map($('#map'), mapOptions);
+      };
+    </script>
+  </div>
+
+</section>

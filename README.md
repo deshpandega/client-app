@@ -1,6 +1,31 @@
-# Client
+# Client Application
 
-This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 1.5.0.
+This is the frontend application for project **Hobbie Locale**
+This project is generated with [Angular CLI](https://github.com/angular/angular-cli) version 1.5.0.
+
+#### Authors / Contributors
+
+Mitali
+
+Ruchi
+
+Amitha
+
+Shamal
+
+Gaurang
+
+
+## To resolve dependencies, run following commands
+
+Clone this repository on local machine. Open bash terminal and run following commands:
+
+`cd /path/to/client-app` 
+
+`npm install`
+
+This will install all the dependencies for this project.
+
 
 ## Development server
 
@@ -21,7 +46,3 @@ Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.
 ## Running end-to-end tests
 
 Run `ng e2e` to execute the end-to-end tests via [Protractor](http://www.protractortest.org/).
-
-## Further help
-
-To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI README](https://github.com/angular/angular-cli/blob/master/README.md).
