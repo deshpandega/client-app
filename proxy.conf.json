@@ -1,0 +1,14 @@
+{
+  "/api":{
+    "target":"https://192.168.33.13/api/v1/web/guest/hobbylocale/login",
+    "secure": false,
+    "changeOrigin": true,
+    "logLevel":"debug"
+  },
+  "/profiles":{
+    "target":"https://192.168.33.13/api/v1/web/guest/hobbylocale/",
+    "secure": false,
+    "changeOrigin": true,
+    "logLevel":"debug"
+  }
+}

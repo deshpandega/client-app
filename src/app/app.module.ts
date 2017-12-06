@@ -1,18 +1,23 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
+import { FormsModule } from "@angular/forms";
+import { ReactiveFormsModule } from "@angular/forms";
+import { HttpModule } from "@angular/http";
 
 import { AppComponent } from './app.component';
+import { IndexPage } from "./indexPage/indexPage.component";
 import { Navigation } from './nav/nav.component';
-import { Carousal } from './carousal/carousal.component';
-import { Events } from './events/events.component';
-import { Categories } from "./categories/categories.component";
-import { Login } from "./login/login.component";
-import { About } from "./about/about.component";
+import { Carousal } from './indexPage/carousal/carousal.component';
+import { Events } from './indexPage/events/events.component';
+import { Categories } from "./indexPage/categories/categories.component";
+import { Login } from "./indexPage/login/login.component";
+import { About } from "./indexPage/about/about.component";
 import { Contact } from "./contact/contact.component";
 
 @NgModule({
   declarations: [
     AppComponent,
+    IndexPage,
     Navigation,
     Carousal,
     Events,
@@ -22,7 +27,7 @@ import { Contact } from "./contact/contact.component";
     Contact
   ],
   imports: [
-    BrowserModule
+    BrowserModule, FormsModule, ReactiveFormsModule, HttpModule
   ],
   providers: [],
   bootstrap: [AppComponent]
