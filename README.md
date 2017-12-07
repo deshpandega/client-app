@@ -29,7 +29,10 @@ This will install all the dependencies for this project.
 
 ## Development server
 
-Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The app will automatically reload if you change any of the source files.
+Run `ng start` for a dev server. Navigate to `http://localhost:4200/`. The app will automatically reload if you change any of the source files.
+In order to call backend deployed on OpenWhisk with different ip address, we use proxies in angular 2 code.
+Checkout `proxy.conf.json` file for mappig of urls. 
+Check `package.json` to check the starting script.
 
 ## Code scaffolding
 

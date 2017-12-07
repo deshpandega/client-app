@@ -13,6 +13,7 @@ import { Categories } from "./indexPage/categories/categories.component";
 import { Login } from "./indexPage/login/login.component";
 import { About } from "./indexPage/about/about.component";
 import { Contact } from "./contact/contact.component";
+import { SharedService } from "./shared/shared.service"; 
 
 @NgModule({
   declarations: [
@@ -29,7 +30,7 @@ import { Contact } from "./contact/contact.component";
   imports: [
     BrowserModule, FormsModule, ReactiveFormsModule, HttpModule
   ],
-  providers: [],
+  providers: [SharedService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
