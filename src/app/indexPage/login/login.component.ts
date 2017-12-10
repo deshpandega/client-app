@@ -4,6 +4,8 @@ import {FormGroup, FormBuilder, FormControl, Validators} from "@angular/forms";
 import {Http, Response, RequestOptions, Headers} from "@angular/http";
 import { User } from "../../shared/user.model";
 import 'rxjs/add/operator/map';
+import {EqualValidator} from "./equalvalidator.directive";
+
 
 @Component({
   selector: 'loginComp',
@@ -17,6 +19,10 @@ export class Login implements OnInit{
   registrationForm: FormGroup;
   usernameLoginControl;
   passwordLoginControl;
+  passwordConfirmRegisterControl;
+  emailRegisterControl;
+  usernameRegisterControl;
+  passwordRegisterControl;
   loading:Boolean = false;
   user:User;
 
@@ -26,6 +32,7 @@ export class Login implements OnInit{
   // Constructor to inject things
   constructor(private formBuilder: FormBuilder, public http: Http, private _sharedService: SharedService){
     this.buildForm();
+    this.registerForm();
   }
 
   // InIt method makes things ready when component is loaded
@@ -51,6 +58,27 @@ export class Login implements OnInit{
 
     this.passwordLoginControl = this.loginForm.get('passwordLogin');
     this.passwordLoginControl.valueChanges.subscribe(value=>{ });
+  };
+
+  registerForm(){
+    this.registrationForm=this.formBuilder.group({
+      usernameRegister: this.formBuilder.control('', Validators.required),
+      emailRegister: this.formBuilder.control('', Validators.required),
+      passwordRegister: this.formBuilder.control('', Validators.required),
+      confirm_passwordRegister: this.formBuilder.control('', Validators.required)
+    });
+    console.log('---->'+this.registrationForm.get('usernameRegister').valid);
+    this.usernameRegisterControl = this.registrationForm.get('usernameRegister');
+    this.usernameRegisterControl.valueChanges.subscribe(value=>{ });
+
+    this.emailRegisterControl = this.registrationForm.get('emailRegister');
+    this.emailRegisterControl.valueChanges.subscribe(value=>{ });
+
+    this.passwordRegisterControl = this.registrationForm.get('passwordRegister');
+    this.passwordRegisterControl.valueChanges.subscribe(value=>{ });
+
+    this.passwordConfirmRegisterControl = this.registrationForm.get('confirm_passwordRegister');
+    this.passwordConfirmRegisterControl.valueChanges.subscribe(value=>{ });
   };
 
   // Authenticate user by calling login-action from OW

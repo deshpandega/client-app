@@ -2,12 +2,13 @@
   <div class="container">
     <div class="row">
       <div class="col-lg-8 mx-auto text-center">
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
         <h2 class="section-heading">Get Started</h2>
         <hr class="primary">
       </div>
     </div>
   </div>
-  
+
   <!-- When there is a user logged in -->
   <div class="container" *ngIf="token">
     <div class="row">
@@ -77,9 +78,10 @@
                 <form id="login-form" role="form" style="display: block;" [formGroup]="loginForm" (ngSubmit)="authenticateUser()" [class.loading]="loading">
                   <div class="form-group">
                     <input type="text" name="usernameLogin" id="usernameLogin" formControlName="usernameLogin" tabindex="1" class="form-control"
-                           placeholder="Username" value="">
+                           placeholder="Email" value="">
                     <div *ngIf="usernameLoginControl.errors" class="error">
                       <div *ngIf="usernameLoginControl.errors.required && (usernameLoginControl.touched || usernameLoginControl.dirty)">
+                        <i class="fa fa-exclamation-circle" style="color:red"></i>
                         Required!
                       </div>
                     </div>
@@ -89,6 +91,7 @@
                            placeholder="Password">
                     <div *ngIf="passwordLoginControl.errors" class="error">
                       <div *ngIf="passwordLoginControl.errors.required && (passwordLoginControl.touched || passwordLoginControl.dirty)">
+                        <i class="fa fa-exclamation-circle" style="color:red"></i>
                         Required!
                       </div>
                     </div>
@@ -114,27 +117,64 @@
                     </div>
                   </div>
                 </form>
-                <form id="register-form" role="form" style="display: none;">
+                <form id="register-form" role="form" style="display: none;" [formGroup]="registrationForm">
                   <div class="form-group">
-                    <input type="text" name="usernameRegister" id="usernameRegister" tabindex="1" class="form-control"
-                           placeholder="Username" value="">
+                    <input type="text" name="usernameRegister" id="usernameRegister" formControlName="usernameRegister" tabindex="1" class="form-control"
+                           placeholder="FullName" value="">
+                    <div *ngIf="usernameRegisterControl.errors" class="error">
+                      <div *ngIf="usernameRegisterControl.errors.required && (usernameRegisterControl.touched || usernameRegisterControl.dirty)">
+                        <i class="fa fa-exclamation-circle" style="color:red"></i>
+                        Required!
+                      </div>
+                    </div>
                   </div>
                   <div class="form-group">
-                    <input type="email" name="emailRegister" id="emailRegister" tabindex="2" class="form-control"
-                           placeholder="Email Address" value="">
+                    <input type="email" name="emailRegister" id="emailRegister" tabindex="2" formControlName="emailRegister" class="form-control"
+                           placeholder="Email Address" pattern="^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$"
+                            value="">
+                    <div *ngIf="emailRegisterControl.errors" class="error">
+                      <div *ngIf="emailRegisterControl.errors.required && (emailRegisterControl.touched || emailRegisterControl.dirty)">
+                        <i class="fa fa-exclamation-circle" style="color:red"></i>
+                        Required!
+                      </div>
+                      <div  *ngIf="emailRegisterControl.errors && emailRegisterControl.errors.pattern">
+                        <i class="fa fa-exclamation-circle" style="color:red"></i>
+                        Enter a valid Email!
+                      </div>
+                    </div>
                   </div>
                   <div class="form-group">
-                    <input type="password" name="passwordRegister" id="passwordRegister" tabindex="3" class="form-control"
-                           placeholder="Password">
+                    <input type="password" name="passwordRegister" id="passwordRegister" formControlName="passwordRegister" tabindex="3" class="form-control"
+                           placeholder="Password" minlength="8">
+                    <div *ngIf="passwordRegisterControl.errors" class="error">
+                      <div *ngIf="passwordRegisterControl.errors.required && (passwordRegisterControl.touched || passwordRegisterControl.dirty)">
+                        <i class="fa fa-exclamation-circle" style="color:red"></i>
+                        Required!
+                      </div>
+                      <div *ngIf="passwordRegisterControl.errors.minlength && (passwordRegisterControl.touched || passwordRegisterControl.dirty)">
+                      <i class="fa fa-exclamation-circle" style="color:red"></i>
+                        Minimum 8 characters are required!
+                      </div>
+                    </div>
                   </div>
                   <div class="form-group">
-                    <input type="password" name="confirm-passwordRegister" id="confirm-passwordRegister" tabindex="4"
-                           class="form-control" placeholder="Confirm Password">
+                    <input type="password" name="confirm_passwordRegister" id="confirm_passwordRegister" formControlName="confirm_passwordRegister" tabindex="4"
+                           class="form-control" placeholder="Confirm Password" validateEqual="passwordRegister" >
+                    <div *ngIf="passwordConfirmRegisterControl.errors" class="error">
+                      <div *ngIf="passwordConfirmRegisterControl.errors.required && (passwordConfirmRegisterControl.touched || passwordConfirmRegisterControl.dirty)">
+                        <i class="fa fa-exclamation-circle" style="color:red"></i>
+                        Required!
+                      </div>
+                      <div *ngIf="passwordConfirmRegisterControl.valid  || (passwordConfirmRegisterControl.touched  && registrationForm.dirty)">
+                        <i class="fa fa-exclamation-circle" style="color:red"></i>
+                        Please enter same password!
+                      </div>
+                    </div>
                   </div>
                   <div class="form-group">
                     <div class="row">
                       <div class="col-sm-6 col-sm-offset-3" style="padding-left:3%;">
-                        <button type="submit" tabindex="5" class="btn btn-primary" style="align-self: center;">Register</button>
+                        <button type="submit" tabindex="5" [disabled]="!registrationForm.valid" class="btn btn-primary" style="align-self: center;">Register</button>
                       </div>
                     </div>
                   </div>
