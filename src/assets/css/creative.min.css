@@ -50,7 +50,7 @@
 #mainNav.navbar-shrink .navbar-nav>li.nav-item>a.nav-link:focus:hover,
 #mainNav.navbar-shrink .navbar-nav>li.nav-item>a.nav-link:hover{color:#f05f40}}
 header.masthead{position:relative;width:100%;min-height:auto;text-align:center;color:#fff;
-	background-image:url(../img/header.jpg);background-position:center;-webkit-background-size:cover;
+	background-image:url();background-position:center;-webkit-background-size:cover;
 	-moz-background-size:cover;-o-background-size:cover;background-size:cover}
 header.masthead .header-content{position:relative;width:100%;padding:150px 15px 100px;text-align:center}
 header.masthead .header-content .header-content-inner h1{font-size:30px;font-weight:700;margin-top:0;margin-bottom:0;text-transform:uppercase}
