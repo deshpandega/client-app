@@ -17,14 +17,19 @@ export class Login implements OnInit{
 
   loginForm: FormGroup;
   registrationForm: FormGroup;
+
   usernameLoginControl;
   passwordLoginControl;
+  
   passwordConfirmRegisterControl;
   emailRegisterControl;
   usernameRegisterControl;
   passwordRegisterControl;
+
   loading:Boolean = false;
   user:User;
+
+  errorUserLogin:string;
 
   //Token to check authentication of users
   token:string;
@@ -109,19 +114,27 @@ export class Login implements OnInit{
     const requestOptions = new RequestOptions({headers: headers});
 
     //Check proxy file for correct API call
-    this.http.post('/api', sendData, requestOptions)
-      .map((res: Response) => res)
+    this.http.post('/authenticate', sendData, requestOptions)
+      // .map((res: Response) => res)
       .subscribe((res)=>{
-        this.loginForm.reset();
         this.loading = false;
-        this.user = res.json();
-        console.log(this.user);
-        console.log('header value--> '+res.headers._headers.get('token')[0]);
-        this.token = res.headers._headers.get('token')[0];
-		
+        if(res.status == 200){
+          this.loginForm.reset();
 
-        this._sharedService.setToken(this.token);
-        this._sharedService.setUser(this.user);
+          this.user = res.json();
+          console.log(this.user);
+          this.token = res.headers.get('token')[0];
+
+          this._sharedService.setToken(this.token);
+          this._sharedService.setUser(this.user);
+        }
+        else if(res.status == 401){
+          console.log('Invalid credentials');
+          this.errorUserLogin = res.json();
+
+          this._sharedService.setToken(null);
+          this._sharedService.setUser(null);
+        }
       });
 
     // console.log(this.loginForm.get('usernameLogin').value+" <----> "+this.loginForm.get('passwordLogin').value);

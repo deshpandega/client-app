@@ -3,12 +3,12 @@ import {SharedService} from "../shared/shared.service";
 import {OnInit} from '@angular/core';
 import {User} from "../shared/user.model";
 @Component({
-  selector: 'navigation',
-  templateUrl: './nav.component.html',
-  styleUrls: ['./nav.component.css']
+  selector: 'header',
+  templateUrl: './header.component.html',
+  styleUrls: ['./header.component.css']
 })
 
-export class Navigation{
+export class HeaderComponent{
   token: string;
   user: User;
   

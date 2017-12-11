@@ -10,7 +10,7 @@
     <div class="collapse navbar-collapse" id="navbarResponsive">
       <ul class="navbar-nav ml-auto">
         <li class="nav-item">
-          <a class="navbar-brand js-scroll-trigger" href="#page-top">Home</a>
+          <a routerLink="/index" class="navbar-brand js-scroll-trigger" href="#page-top" >Home</a>
         </li>
         <li class="nav-item">
           <a class="navbar-brand js-scroll-trigger" href="#login">Login/Register</a>
@@ -19,7 +19,7 @@
           <a class="navbar-brand js-scroll-trigger" href="#about">About Us</a>
         </li>
         <li class="nav-item">
-          <a class="navbar-brand js-scroll-trigger" href="#contact">Contact</a>
+          <a class="navbar-brand js-scroll-trigger" routerLink="/profile">Profile</a>
         </li>
         <li class="nav-item" *ngIf="token">
           <div class="dropdown show">
