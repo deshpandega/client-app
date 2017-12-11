@@ -3,7 +3,7 @@ import {SharedService} from "../shared/shared.service";
 import {OnInit} from '@angular/core';
 import {User} from "../shared/user.model";
 @Component({
-  selector: 'header',
+  selector: 'header-nav',
   templateUrl: './header.component.html',
   styleUrls: ['./header.component.css']
 })
