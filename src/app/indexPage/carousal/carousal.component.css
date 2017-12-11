@@ -7,22 +7,40 @@ body {
   background-size: cover;
 }
 
+.video-container{
+  width: 100%;
+  min-height: 650px;
+  max-height: 760px;
+  overflow: hidden;
+  position: relative;
+  top: 0;
+  right: 0;
+  z-index: 1;
+}
+
 /* The only rule that matters */
 #video-background {
 /*  making the video fullscreen  */
-  position: fixed;
-  right: 0; 
-  bottom: 0;
+  position: relative;
   min-width: 100%; 
-  min-height: 100%;
-  height: auto;
-  z-index: -100;
-  width: 100%;
-  color: white;
+  max-height: 1160px;
+  z-index: 1;
   background-position: center;
   -webkit-background-size: cover;
   -moz-background-size: cover;
   -o-background-size: cover;
   background-size: cover;
+  overflow: auto;
+  height: auto;
+  width: auto;
+  margin-left: 0px;
+
 }
 
+header.masthead{
+  background-color: black;
+}
+
+header.masthead.header-content{
+  z-index: 1;
+}
