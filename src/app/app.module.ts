@@ -13,7 +13,8 @@ import { Categories } from "./indexPage/categories/categories.component";
 import { Login } from "./indexPage/login/login.component";
 import { About } from "./indexPage/about/about.component";
 import { Contact } from "./contact/contact.component";
-import { SharedService } from "./shared/shared.service"; 
+import { SharedService } from "./shared/shared.service";
+import { EqualValidator } from "./indexPage/login/equalvalidator.directive";
 
 @NgModule({
   declarations: [
@@ -25,7 +26,8 @@ import { SharedService } from "./shared/shared.service";
     Categories,
     Login,
     About,
-    Contact
+    Contact,
+    EqualValidator
   ],
   imports: [
     BrowserModule, FormsModule, ReactiveFormsModule, HttpModule

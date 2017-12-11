@@ -22,3 +22,9 @@
 	background-color: gray;
 	border-color: gray;
 }
+
+.error{
+  color:red;
+  padding:5px 15px;
+
+}
