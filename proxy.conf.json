@@ -1,5 +1,5 @@
 {
-  "/api":{
+  "/authenticate":{
     "target":"https://192.168.33.13/api/v1/web/guest/hobbylocale/login",
     "secure": false,
     "changeOrigin": true,
