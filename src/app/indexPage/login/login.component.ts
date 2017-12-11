@@ -118,6 +118,7 @@ export class Login implements OnInit{
         console.log(this.user);
         console.log('header value--> '+res.headers._headers.get('token')[0]);
         this.token = res.headers._headers.get('token')[0];
+		
 
         this._sharedService.setToken(this.token);
         this._sharedService.setUser(this.user);
