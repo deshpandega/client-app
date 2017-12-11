@@ -119,7 +119,7 @@
                 <form id="register-form" role="form" style="display: none;" [formGroup]="registrationForm">
                   <div class="form-group">
                     <input type="text" name="usernameRegister" id="usernameRegister" formControlName="usernameRegister" tabindex="1" class="form-control"
-                           placeholder="FullName" value="">
+                           placeholder="Full Name" value="">
                     <div *ngIf="usernameRegisterControl.errors" class="error">
                       <div *ngIf="usernameRegisterControl.errors.required && (usernameRegisterControl.touched || usernameRegisterControl.dirty)">
                         <i class="fa fa-exclamation-circle" style="color:red"></i>
