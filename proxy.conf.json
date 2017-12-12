@@ -10,5 +10,11 @@
     "secure": false,
     "changeOrigin": true,
     "logLevel":"debug"
+  },
+  "/payment":{
+    "target":"https://192.168.33.13/api/v1/web/guest/hobbylocale/user",
+    "secure": false,
+    "changeOrigin": true,
+    "logLevel":"debug"
   }
 }

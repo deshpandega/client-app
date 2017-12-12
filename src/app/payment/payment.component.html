@@ -1,0 +1,112 @@
+<section id="login">
+  <div class="container">
+    <div class="row">
+      <div class="col-lg-8 mx-auto text-center">
+        <h2 class="section-heading">Payment Methods</h2>
+        <hr class="primary">
+      </div>
+    </div>
+  </div>
+
+  <div class="container">
+    <div class="row">
+      <div class="col-md-2 col-sm-1"></div>
+      <div class="col-md-8 col-sm-10">
+        <div class="panel panel-login">
+          <div class="panel-heading" style="width: 80%; margin: 0px auto">
+            <div class="row">
+              <div class="col-xs-5">
+                <a class="active" href="#" id="register-form-link">Add Payment</a>
+              </div>
+              <br>
+              <br>
+            </div>
+          </div>
+          <div class="panel-body">
+            <div class="row">
+              <div class="col-lg-1 col-md-1 col-sm-1"></div>
+              <div class="col-lg-10 col-md-10 col-sm-10">
+                <form id="payment-form" role="form" [formGroup]="paymentForm" (ngSubmit)="addPaymentMethod()" [class.loading]="loading">
+                  <div class="form-group">
+                    <input type="text" name="cardHolderName" id="cardHolderName" formControlName="cardHolderName" tabindex="1" class="form-control" placeholder="Card Holder Name" value="">
+                    <div *ngIf="cardNameControl.errors" class="error">
+                      <div *ngIf="cardNameControl.errors.required && (cardNameControl.touched || cardNameControl.dirty)">
+                        <i class="fa fa-exclamation-circle" style="color:red"></i>
+                        Required!
+                      </div>
+                    </div>
+                  </div>
+                  <div class="form-group">
+                    <input type="text" name="cardNumber" id="cardNumber" formControlName="cardNumber" tabindex="1" class="form-control" placeholder="Card Number" value="">
+                    <div *ngIf="cardNumberControl.errors" class="error">
+                      <div *ngIf="cardNumberControl.errors.required && (cardNumberControl.touched || cardNumberControl.dirty)">
+                        <i class="fa fa-exclamation-circle" style="color:red"></i>
+                        Required!
+                      </div>
+                    </div>
+                  </div>
+                   <div class="form-group">
+                    <select name="cardMonth" id="cardMonth" formControlName="cardMonth" class="form-control" style = "color:grey">
+                      <option value="" selected disabled>Month</option>
+					  <option value="January">January</option>
+					  <option value="February">February</option>
+					  <option value="March">March</option>
+					  <option value="April">April</option>
+					  <option value="May">May</option>
+					  <option value="June">June</option>
+					  <option value="July">July</option>
+					  <option value="August">August</option>
+					  <option value="September">September</option>
+					  <option value="October">October</option>
+					  <option value="November">November</option>
+					  <option value="December">December</option>
+					 </select>
+                    <div *ngIf="cardMonthControl.errors" class="error">
+                      <div *ngIf="cardMonthControl.errors.required && (cardMonthControl.touched || cardNumberControl.dirty)">
+                        <i class="fa fa-exclamation-circle" style="color:red"></i>
+                        Required!
+                      </div>
+                    </div>
+                </div>
+                <div class="form-group">
+                   <select name="cardYear" id="cardYear" formControlName="cardYear" class="form-control" style = "color:grey">
+                      <option value="" selected disabled>Year</option>
+					  <option value="2017">2017</option>
+					  <option value="2018">2018</option>
+					  <option value="2019">2019</option>
+					  <option value="2020">2020</option>
+					</select>
+                    <div *ngIf="cardYearControl.errors" class="error">
+                      <div *ngIf="cardYearControl.errors.required && (cardYearControl.touched || cardYearControl.dirty)">
+                        <i class="fa fa-exclamation-circle" style="color:red"></i>
+                        Required!
+                      </div>
+                    </div>
+                  </div>
+                   <div class="form-group">
+                    <input type="text" name="cardCVV" id="cardCVV" formControlName="cardCVV" tabindex="1" class="form-control" placeholder="CCV" value="">
+                    <div *ngIf="cardCCVControl.errors" class="error">
+                      <div *ngIf="cardCCVControl.errors.required && (cardCCVControl.touched || cardCCVControl.dirty)">
+                        <i class="fa fa-exclamation-circle" style="color:red"></i>
+                        Required!
+                      </div>
+                    </div>
+                  </div>
+                  <div class="form-group">
+                    <div class="row">
+                      <div class="col-sm-6 col-sm-offset-3" style="padding-left:3%;">
+                        <button type="submit" tabindex="5" [disabled]="!paymentForm.valid" class="btn btn-primary" style="align-self: center;">Add</button>
+                      </div>
+                    </div>
+                  </div>
+                </form>
+              </div>
+              <div class="col-lg-1 col-md-1 col-sm-1"></div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="col-md-2 col-sm-1"></div>
+    </div>
+  </div>
+</section>
