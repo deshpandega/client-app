@@ -3,6 +3,8 @@ import {Routes, RouterModule} from "@angular/router";
 import {AppComponent} from "./app.component";
 import {IndexPage} from "./indexPage/indexPage.component";
 import {ProfileComponent} from "./profile/profile.component";
+import {PaymentComponent} from "./payment/payment.component";
+
 const routes: Routes = [
   {
     path: 'index',
@@ -11,6 +13,10 @@ const routes: Routes = [
   {
     path: 'profile',
     component: ProfileComponent
+  },
+   {
+    path: 'payment',
+    component: PaymentComponent
   },
   {
     path: '',

@@ -18,11 +18,12 @@ import { FooterComponent } from "./footer/footer.component";
 import { SharedService } from "./shared/shared.service"; 
 import { ProfileComponent } from "./profile/profile.component";
 import { EqualValidator } from "./indexPage/login/equalvalidator.directive";
+import { PaymentComponent } from "./payment/payment.component";
 
 @NgModule({
   declarations: [
     AppComponent, IndexPage, HeaderComponent, Carousal, Events, Categories, Login, About, FooterComponent,
-    ProfileComponent, EqualValidator
+    ProfileComponent, EqualValidator,PaymentComponent
   ],
   imports: [
     BrowserModule, FormsModule, ReactiveFormsModule, HttpModule, RouterModule, AppRoutingModule
