@@ -17,17 +17,19 @@ import { About } from "./indexPage/about/about.component";
 import { FooterComponent } from "./footer/footer.component";
 import { SharedService } from "./shared/shared.service";
 import { ProfileComponent } from "./profile/profile.component";
-import{ EventRegComponent} from "./event-reg/event-reg.component";
+import { EventRegComponent} from "./event-reg/event-reg.component";
 import { EqualValidator } from "./indexPage/login/equalvalidator.directive";
 import { PaymentComponent } from "./payment/payment.component";
 import { ProfileHeader } from "./profile/profileHeader/profileHeader.component";
 import { EventsBody } from "./profile/events/events.component";
 import { HobbieDetails } from "./profile/hobbieDetails/hobbieDetails.component";
+import { EditProfileComponent } from "./editProfile/editProfile.component";
 
 @NgModule({
   declarations: [
     AppComponent, IndexPage, HeaderComponent, Carousal, Events, Categories, Login, About, FooterComponent,
-    ProfileComponent, EventRegComponent, EqualValidator,PaymentComponent, ProfileHeader, EventsBody, HobbieDetails
+    ProfileComponent, EventRegComponent, EqualValidator,PaymentComponent, ProfileHeader, EventsBody, HobbieDetails,
+    EditProfileComponent
   ],
   imports: [
     BrowserModule, FormsModule, ReactiveFormsModule, HttpModule, RouterModule, AppRoutingModule

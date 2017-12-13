@@ -27,10 +27,62 @@
 
   <!-- Custom styles for this template -->
   <link href="./assets/css/creative.min.css" rel="stylesheet">
-
+  <style>
+    /* preloader section */
+    .preloader {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      z-index: 99999;
+      display: -webkit-flex;
+      display: -ms-flexbox;
+      display: flex;
+      -webkit-flex-flow: row nowrap;
+      -ms-flex-flow: row nowrap;
+      flex-flow: row nowrap;
+      -webkit-justify-content: center;
+      -ms-flex-pack: center;
+      justify-content: center;
+      -webkit-align-items: center;
+      -ms-flex-align: center;
+      align-items: center;
+      background: none repeat scroll 0 0 #fff;
+      background: none repeat scroll 0 0 #f9f9f9;
+    }
+    .sk-spinner-rotating-plane.sk-spinner {
+      width: 40px;
+      height: 40px;
+      background-color: #eb5424;
+      border-radius: 50%;
+      -webkit-animation: sk-rotatePlane 1.2s infinite ease-in-out;
+      animation: sk-rotatePlane 1.2s infinite ease-in-out;
+    }
+    @keyframes sk-rotatePlane {
+      0% {
+        -webkit-transform: perspective(120px) rotateX(0deg) rotateY(0deg);
+        transform: perspective(120px) rotateX(0deg) rotateY(0deg);
+      }
+      50% {
+        -webkit-transform: perspective(120px) rotateX(-180.1deg) rotateY(0deg);
+        transform: perspective(120px) rotateX(-180.1deg) rotateY(0deg);
+      }
+      100% {
+        -webkit-transform: perspective(120px) rotateX(-180deg) rotateY(-179.9deg);
+        transform: perspective(120px) rotateX(-180deg) rotateY(-179.9deg);
+      }
+    }
+  </style>
 </head>
 <body id="page-top">
-  <app-root>Loading...</app-root>
+  <app-root><!-- preloader section -->
+    <div class="preloader">
+      <div class="sk-spinner sk-spinner-rotating-plane"></div>
+    </div>
+    Loading...
+
+  </app-root>
 
   <!-- Bootstrap core JavaScript -->
   <script src="assets/js/jquery.js"></script>
