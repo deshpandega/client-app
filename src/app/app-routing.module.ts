@@ -5,6 +5,7 @@ import {IndexPage} from "./indexPage/indexPage.component";
 import {ProfileComponent} from "./profile/profile.component";
 import {PaymentComponent} from "./payment/payment.component";
 import {EventRegComponent} from "./event-reg/event-reg.component";
+import { AllEventsComponent } from "./all-events/all-events.component";
 import { EditProfileComponent } from "./editProfile/editProfile.component";
 
 const routes: Routes = [
@@ -28,6 +29,12 @@ const routes: Routes = [
     path: 'event-reg',
     component: EventRegComponent
   },
+
+  {
+    path: 'all-events',
+    component: AllEventsComponent
+  },
+
   {
     path: '',
     redirectTo: 'index',
