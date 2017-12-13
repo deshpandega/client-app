@@ -94,12 +94,16 @@ export class Login implements OnInit{
 
     //Get values from validated form and generate user object
     const userData : User = {
-      username: this.loginForm.get('usernameLogin').value,
+      email: this.loginForm.get('usernameLogin').value,
       password: this.loginForm.get('passwordLogin').value,
-      fullname: null,
-      createdDate: null,
+      name: null,
+      dob: null,
       profileIcon: null,
-      hobbies: null
+      hobbies: null,
+      aboutme: null,
+      hostedevents: null,
+      registeredevents: null,
+      token: ''
     };
 
     //Construct data to be sent to backend because in login-action,
@@ -107,7 +111,7 @@ export class Login implements OnInit{
     const sendData = {
       "user": userData
     };
-
+    
     const headers = new Headers();
     headers.append('Content-Type', 'application/json');
 
@@ -123,7 +127,7 @@ export class Login implements OnInit{
 
           this.user = res.json();
           console.log(this.user);
-          this.token = res.headers.get('token')[0];
+          this.token = this.user.token;
 
           this._sharedService.setToken(this.token);
           this._sharedService.setUser(this.user);
@@ -132,7 +136,7 @@ export class Login implements OnInit{
           console.log('Invalid credentials');
           this.errorUserLogin = res.json();
 
-          this._sharedService.setToken(null);
+          this._sharedService.setToken('');
           this._sharedService.setUser(null);
         }
       });

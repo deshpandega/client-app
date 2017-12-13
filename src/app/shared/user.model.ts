@@ -1,9 +1,12 @@
 export interface User{
-  username:string;
+  email:string;
   password:string;
-  fullname:string;
-  createdDate: Date;
+  name:string;
+  dob: string;
   profileIcon: any;
-  // remember:boolean;
+  token: string;
+  aboutme: string;
   hobbies: any[];
+  registeredevents: any[];
+  hostedevents: any[];
 }
