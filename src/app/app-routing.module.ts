@@ -7,6 +7,7 @@ import {PaymentComponent} from "./payment/payment.component";
 import {EventRegComponent} from "./event-reg/event-reg.component";
 import { AllEventsComponent } from "./all-events/all-events.component";
 import { EditProfileComponent } from "./editProfile/editProfile.component";
+import {CreateEventComponent} from "./create-event/create-event.component";
 
 const routes: Routes = [
   {
@@ -33,6 +34,11 @@ const routes: Routes = [
   {
     path: 'all-events',
     component: AllEventsComponent
+  },
+
+  {
+    path: 'create-event',
+    component: CreateEventComponent
   },
 
   {
