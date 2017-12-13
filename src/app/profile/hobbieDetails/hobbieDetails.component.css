@@ -1,0 +1,39 @@
+/* work section */
+#work {
+  background-color: #ffffff;
+}
+#work .container {
+  width: 100%;
+  padding: 0;
+  margin: 0;
+}
+#work .title {
+  padding: 100px 60px 60px 60px;
+}
+#work .bg-black {
+  background-color: #303030;
+  color: #ffffff;
+}
+#work .bg-red {
+  background-color: #eb5424;
+  color: #ffffff;
+}
+#work h3 {
+  padding-bottom: 60px;
+}
+#work .fa {
+  color: #ffffff;
+  cursor: pointer;
+  font-size: 40px;
+  width: 100px;
+  height: 100px;
+  line-height: 100px;
+  text-align: center;
+  transition: all 0.4s ease-in-out;
+  margin-top: 40px;
+}
+#work .fa:hover {
+  background-color: #ffffff;
+  border-radius: 50%;
+  color: #303030;
+}

@@ -3,6 +3,7 @@ import {Routes, RouterModule} from "@angular/router";
 import {AppComponent} from "./app.component";
 import {IndexPage} from "./indexPage/indexPage.component";
 import {ProfileComponent} from "./profile/profile.component";
+import {PaymentComponent} from "./payment/payment.component";
 import {EventRegComponent} from "./event-reg/event-reg.component";
 
 const routes: Routes = [
@@ -13,6 +14,10 @@ const routes: Routes = [
   {
     path: 'profile',
     component: ProfileComponent
+  },
+   {
+    path: 'payment',
+    component: PaymentComponent
   },
   {
     path: 'event-reg',
@@ -29,8 +34,7 @@ const routes: Routes = [
   imports:[RouterModule.forRoot(
       routes,
       {
-        enableTracing:true,
-
+        enableTracing:true
       }
     )],
   exports:[RouterModule]

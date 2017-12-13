@@ -19,11 +19,15 @@ import { SharedService } from "./shared/shared.service";
 import { ProfileComponent } from "./profile/profile.component";
 import{ EventRegComponent} from "./event-reg/event-reg.component";
 import { EqualValidator } from "./indexPage/login/equalvalidator.directive";
+import { PaymentComponent } from "./payment/payment.component";
+import { ProfileHeader } from "./profile/profileHeader/profileHeader.component";
+import { EventsBody } from "./profile/events/events.component";
+import { HobbieDetails } from "./profile/hobbieDetails/hobbieDetails.component";
 
 @NgModule({
   declarations: [
     AppComponent, IndexPage, HeaderComponent, Carousal, Events, Categories, Login, About, FooterComponent,
-    ProfileComponent,EventRegComponent, EqualValidator
+    ProfileComponent, EventRegComponent, EqualValidator,PaymentComponent, ProfileHeader, EventsBody, HobbieDetails
   ],
   imports: [
     BrowserModule, FormsModule, ReactiveFormsModule, HttpModule, RouterModule, AppRoutingModule
