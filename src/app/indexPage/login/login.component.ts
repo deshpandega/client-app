@@ -20,7 +20,7 @@ export class Login implements OnInit{
 
   usernameLoginControl;
   passwordLoginControl;
-  
+
   passwordConfirmRegisterControl;
   emailRegisterControl;
   usernameRegisterControl;
