@@ -3,6 +3,8 @@ import {Routes, RouterModule} from "@angular/router";
 import {AppComponent} from "./app.component";
 import {IndexPage} from "./indexPage/indexPage.component";
 import {ProfileComponent} from "./profile/profile.component";
+import {EventRegComponent} from "./event-reg/event-reg.component";
+
 const routes: Routes = [
   {
     path: 'index',
@@ -13,6 +15,10 @@ const routes: Routes = [
     component: ProfileComponent
   },
   {
+    path: 'event-reg',
+    component: EventRegComponent
+  },
+  {
     path: '',
     redirectTo: 'index',
     pathMatch: 'full'
@@ -21,7 +27,7 @@ const routes: Routes = [
 
 @NgModule({
   imports:[RouterModule.forRoot(
-      routes, 
+      routes,
       {
         enableTracing:true,
 

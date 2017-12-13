@@ -15,14 +15,15 @@ import { Categories } from "./indexPage/categories/categories.component";
 import { Login } from "./indexPage/login/login.component";
 import { About } from "./indexPage/about/about.component";
 import { FooterComponent } from "./footer/footer.component";
-import { SharedService } from "./shared/shared.service"; 
+import { SharedService } from "./shared/shared.service";
 import { ProfileComponent } from "./profile/profile.component";
+import{ EventRegComponent} from "./event-reg/event-reg.component";
 import { EqualValidator } from "./indexPage/login/equalvalidator.directive";
 
 @NgModule({
   declarations: [
     AppComponent, IndexPage, HeaderComponent, Carousal, Events, Categories, Login, About, FooterComponent,
-    ProfileComponent, EqualValidator
+    ProfileComponent,EventRegComponent, EqualValidator
   ],
   imports: [
     BrowserModule, FormsModule, ReactiveFormsModule, HttpModule, RouterModule, AppRoutingModule
