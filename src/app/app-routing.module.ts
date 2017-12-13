@@ -5,6 +5,7 @@ import {IndexPage} from "./indexPage/indexPage.component";
 import {ProfileComponent} from "./profile/profile.component";
 import {PaymentComponent} from "./payment/payment.component";
 import {EventRegComponent} from "./event-reg/event-reg.component";
+import {createEvent} from "./createEvent/createEvent.component";
 
 const routes: Routes = [
   {
@@ -22,6 +23,10 @@ const routes: Routes = [
   {
     path: 'event-reg',
     component: EventRegComponent
+  },
+  {
+    path: 'createEvent',
+    component: CreateEventComponent
   },
   {
     path: '',
