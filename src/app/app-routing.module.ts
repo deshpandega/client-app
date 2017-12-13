@@ -4,6 +4,7 @@ import {AppComponent} from "./app.component";
 import {IndexPage} from "./indexPage/indexPage.component";
 import {ProfileComponent} from "./profile/profile.component";
 import {PaymentComponent} from "./payment/payment.component";
+import {EventRegComponent} from "./event-reg/event-reg.component";
 
 const routes: Routes = [
   {
@@ -19,6 +20,10 @@ const routes: Routes = [
     component: PaymentComponent
   },
   {
+    path: 'event-reg',
+    component: EventRegComponent
+  },
+  {
     path: '',
     redirectTo: 'index',
     pathMatch: 'full'
@@ -27,10 +32,9 @@ const routes: Routes = [
 
 @NgModule({
   imports:[RouterModule.forRoot(
-      routes, 
+      routes,
       {
-        enableTracing:true,
-
+        enableTracing:true
       }
     )],
   exports:[RouterModule]
