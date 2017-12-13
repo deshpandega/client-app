@@ -116,7 +116,7 @@
                     </div>
                   </div>
                 </form>
-                <form id="register-form" role="form" style="display: none;" [formGroup]="registrationForm">
+                <form id="register-form" role="form" style="display: none;" [formGroup]="registrationForm" (ngSubmit)="registerUser()" [class.loading]="loading">
                   <div class="form-group">
                     <input type="text" name="usernameRegister" id="usernameRegister" formControlName="usernameRegister" tabindex="1" class="form-control"
                            placeholder="Full Name" value="">

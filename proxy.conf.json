@@ -16,5 +16,11 @@
     "secure": false,
     "changeOrigin": true,
     "logLevel":"debug"
+  },
+  "/postUser":{
+    "target":"https://192.168.33.13/api/v1/web/guest/hobbylocale/postUser",
+    "secure": false,
+    "changeOrigin": true,
+    "logLevel":"debug"
   }
 }

@@ -1,4 +1,4 @@
-import {Component} from "@angular/core";
+import {Component} from '@angular/core';
 
 @Component({
   selector: 'edit-profile',
@@ -6,6 +6,7 @@ import {Component} from "@angular/core";
   styleUrls: ['./editProfile.component.css']
 })
 
-export class EditProfileComponent{
+export class EditProfileComponent  {
+
 
 }
