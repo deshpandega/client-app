@@ -17,8 +17,14 @@
     "changeOrigin": true,
     "logLevel":"debug"
   },
-  "/postUser":{
+  "/addUser":{
     "target":"https://192.168.33.13/api/v1/web/guest/hobbylocale/postUser",
+    "secure": false,
+    "changeOrigin": true,
+    "logLevel":"debug"
+  },
+  "/logout":{
+    "target":"https://192.168.33.13/api/v1/web/guest/hobbylocale/logout",
     "secure": false,
     "changeOrigin": true,
     "logLevel":"debug"
