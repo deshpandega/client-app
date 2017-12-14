@@ -12,31 +12,27 @@
         <li class="nav-item">
           <a routerLink="/index" class="navbar-brand js-scroll-trigger" href="#page-top" >Home</a>
         </li>
-        <li class="nav-item">
+        <li class="nav-item" *ngIf="!user">
           <a class="navbar-brand js-scroll-trigger" href="#login">Login/Register</a>
         </li>
         <li class="nav-item">
           <a class="navbar-brand js-scroll-trigger" href="#about">About Us</a>
         </li>
-        <li class="nav-item">
+        <li class="nav-item" *ngIf="user">
           <a class="navbar-brand js-scroll-trigger" routerLink="/profile">Profile</a>
         </li>
-        <li class="nav-item">
+        <li class="nav-item" *ngIf="user">
           <a class="navbar-brand js-scroll-trigger" routerLink="/event-reg">EventReg</a>
         </li>
         <li class="nav-item">
           <a class="navbar-brand js-scroll-trigger" routerLink="/all-events">Events</a>
         </li>
-        <li class="nav-item" *ngIf="token">
+        <li class="nav-item" *ngIf="user">
           <div class="dropdown show">
             <a href="#" class="btn btn-secondary dropdown-toggle" id="dropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
               <!-- <img class="profilePhoto" [src]="'data:image/jpg;base64,'+user.profileIcon"/> -->
-              {{user.fullname}}
+              {{user.name}}
             </a>
-            <div class="dropdown-menu" aria-labelledby="dropdownMenuLink">
-              <a class="dropdown-item" href="#">Profile</a>
-              <a class="dropdown-item" href="#" (click)="token=null">Logout</a>
-            </div>
           </div>
         </li>
       </ul>
