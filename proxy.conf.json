@@ -1,6 +1,6 @@
 {
   "/authenticate":{
-    "target":"https://192.168.33.13/api/v1/web/guest/hobbylocale/login",
+    "target":"https://openwhisk.ng.bluemix.net/api/v1/web/ichalkaranje.m%40husky.neu.edu_dev/hobbylocale/login",
     "secure": false,
     "changeOrigin": true,
     "logLevel":"debug"
@@ -18,13 +18,13 @@
     "logLevel":"debug"
   },
   "/addUser":{
-    "target":"https://192.168.33.13/api/v1/web/guest/hobbylocale/postUser",
+    "target":"https://openwhisk.ng.bluemix.net/api/v1/web/ichalkaranje.m%40husky.neu.edu_dev/hobbylocale/postUser",
     "secure": false,
     "changeOrigin": true,
     "logLevel":"debug"
   },
   "/logout":{
-    "target":"https://192.168.33.13/api/v1/web/guest/hobbylocale/logout",
+    "target":"https://openwhisk.ng.bluemix.net/api/v1/web/ichalkaranje.m%40husky.neu.edu_dev/hobbylocale/logout",
     "secure": false,
     "changeOrigin": true,
     "logLevel":"debug"
