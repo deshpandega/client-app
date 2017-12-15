@@ -10,20 +10,22 @@ import { Event } from "../shared/event.model";
   styleUrls: ['./createEvent.component.css']
 })
 
-export class FooterComponent{
+export class CreateEventComponent{
   createEventForm: FormGroup;
   
-    eventNameControl;
-    venueControl;
-    cityControl;
-    abouteventControl;
-    hobbytagsControl;
-    createdDateControl;
-    eventStartDateControl;
-    eventEndDateControl;
-    eventStartTimeControl;
-    eventEndTimeControl;
-    eventFeeControl;
+  nameControl;
+  venueControl;
+  descriptionControl;
+  hobbiesControl;
+  dateControl;
+  startTimeControl;
+  endTimeControl;
+  entryFeeControl;
+  bannerControl;
+  hostControl;
+  attendeeControl;
+  ratingControl;
+  commentsControl;
   
     loading:Boolean = false;
     event:Event;
@@ -49,47 +51,43 @@ export class FooterComponent{
     // Builds the form for client side validation
     buildForm(){
       this.createEventForm=this.formBuilder.group({
-        eventNameControl: this.formBuilder.control('', Validators.required),
-        venueControl: this.formBuilder.control('', Validators.required),
-        cityControl: this.formBuilder.control('', Validators.required),
-        abouteventControl: this.formBuilder.control('', Validators.required),
-        hobbytagsControl: this.formBuilder.control('', Validators.required),
-        eventStartDateControl:this.formBuilder.control('',Validators.required),
-        eventEndDateControl:this.formBuilder.control('',Validators.required),
-        eventStartTimeControl:this.formBuilder.control('',Validators.required),
-        eventEndTimeControl:this.formBuilder.control('',Validators.required),
-        eventFeeControl:this.formBuilder.control('',Validators.required),
+        name:this.formBuilder.control('', Validators.required),
+        venue:this.formBuilder.control('', Validators.required),
+        description:this.formBuilder.control('', Validators.required),
+        hobbies:this.formBuilder.control('', Validators.required),
+        date:this.formBuilder.control('', Validators.required),
+        duration:this.formBuilder.control('', Validators.required),
+        entryFee:this.formBuilder.control('', Validators.required),
+        banner:this.formBuilder.control('', Validators.required),
+        host:this.formBuilder.control('', Validators.required),
+        attendee:this.formBuilder.control('', Validators.required),
+        rating:this.formBuilder.control('', Validators.required),
+        comments:this.formBuilder.control('', Validators.required),
       });
   
-      this.eventNameControl = this.createEventForm.get('eventName');
-      this.eventNameControl.valueChanges.subscribe(value=>{ });
+      this.nameControl = this.createEventForm.get('eventName');
+      this.nameControl.valueChanges.subscribe(value=>{ });
   
       this.venueControl = this.createEventForm.get('venue');
       this.venueControl.valueChanges.subscribe(value=>{ });
   
-      this.cityControl = this.createEventForm.get('city');
-      this.cityControl.valueChanges.subscribe(value=>{ });
+      this.descriptionControl = this.createEventForm.get('aboutEvent');
+      this.descriptionControl.valueChanges.subscribe(value=>{ });
   
-      this.abouteventControl = this.createEventForm.get('aboutEvent');
-      this.abouteventControl.valueChanges.subscribe(value=>{ });
-  
-      this.hobbytagsControl = this.createEventForm.get('hobbytags');
-      this.hobbytagsControl.valueChanges.subscribe(value=>{ });
+      this.hobbiesControl = this.createEventForm.get('hobbytags');
+      this.hobbiesControl.valueChanges.subscribe(value=>{ });
 
-      this.eventStartDateControl = this.createEventForm.get('eventStartDate');
-      this.eventStartDateControl.valueChanges.subscribe(value=>{ });
+      this.dateControl = this.createEventForm.get('eventStartDate');
+      this.dateControl.valueChanges.subscribe(value=>{ });
 
-      this.eventEndDateControl = this.createEventForm.get('eventEndDate');
-      this.eventEndDateControl.valueChanges.subscribe(value=>{ });
+      this.startTimeControl = this.createEventForm.get('eventStartTime');
+      this.startTimeControl.valueChanges.subscribe(value=>{ });
 
-      this.eventStartTimeControl = this.createEventForm.get('eventStartTime');
-      this.eventStartTimeControl.valueChanges.subscribe(value=>{ });
+      this.endTimeControl = this.createEventForm.get('eventEndTime');
+      this.endTimeControl.valueChanges.subscribe(value=>{ });
 
-      this.eventEndTimeControl = this.createEventForm.get('eventEndTime');
-      this.eventEndTimeControl.valueChanges.subscribe(value=>{ });
-
-      this.eventFeeControl = this.createEventForm.get('eventFee');
-      this.eventFeeControl.valueChanges.subscribe(value=>{ });
+      this.entryFeeControl = this.createEventForm.get('eventFee');
+      this.entryFeeControl.valueChanges.subscribe(value=>{ });
     };
   
     // Authenticate user by calling login-action from OW
@@ -99,23 +97,21 @@ export class FooterComponent{
       console.log("hello.. we are in create event method");
       const formValues = Object.assign({},this.createEventForm.value);
   
-      //Get values from validated form and generate user object
+      //Get values from validated form and generate event object
       const eventData : Event = {
       
-        eventName: this.createEventForm.get('eventHolderName').value,
+        name: this.createEventForm.get('eventHolderName').value,
         venue: this.createEventForm.get('venue').value,
-        city: this.createEventForm.get('city').value,
-        aboutEvent: this.createEventForm.get('aboutEvent').value,
-        hobbyTags: this.createEventForm.get('hobbyTags').value,
-        createdDate: null,
-        eventStartDate: this.createEventForm.get('eventStartDate').value,
-        eventEndDate: this.createEventForm.get('eventEndDate').value,
-        eventStartTime: this.createEventForm.get('eventStartTime').value,
-        eventEndTime: this.createEventForm.get('eventEndTime').value,
-        eventFee:  this.createEventForm.get('eventFee').value,
-        imageUrl: null,
-        host: null
-
+        description: this.createEventForm.get('aboutEvent').value,
+        hobbies: this.createEventForm.get('hobbyTags').value,
+        date: this.createEventForm.get('date').value,
+        duration: this.createEventForm.get('eventStartTime').value+"to"+this.createEventForm.get('eventEndTime'),
+        entryFee:  this.createEventForm.get('eventFee').value,
+        banner: null,
+        host: null,
+        attendee:null,
+        rating:null,
+        comments:null
       };
   
       //Construct data to be sent to backend because in login-action,

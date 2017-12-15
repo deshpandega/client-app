@@ -1,16 +1,33 @@
 export interface Event{
-    eventName:string;
+    name:string;
     venue:string;
-    city: string;
-    host: string;
-    aboutEvent:number;
-    hobbyTags : any[];
-    createdDate: Date;
-    eventStartDate: Date;
-    eventEndDate: Date;
-    eventStartTime: TimeRanges;
-    eventEndTime: TimeRanges;
-    eventFee: number;
-    imageUrl: string;
+    host: {name:String,email:String,profileIcon:String};
+    description:number;
+    hobbies : any[];
+    date: Date;
+    duration:String;
+    entryFee: number;
+    attendee: [ 
+      {
+        email:String,
+        name:String,
+        profileIcon:String
+      }];
+    banner: string;
+    rating: number;
+    comments: [
+      {
+          commenter: String,
+        comment: String,
+        created: Date,
+        replies: [
+            {
+              reply:String,
+            replier: String,
+            created: String
+          }
+        ]
+      }
+    ]
   }
   
