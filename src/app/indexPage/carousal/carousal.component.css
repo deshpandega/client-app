@@ -44,3 +44,9 @@ header.masthead{
 header.masthead.header-content{
   z-index: 1;
 }
+
+.btn {
+  top: -100px;
+  position: relative;
+  z-index: 2;
+}
