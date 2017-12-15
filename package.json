@@ -21,6 +21,8 @@
     "@angular/platform-browser": "^5.0.0",
     "@angular/platform-browser-dynamic": "^5.0.0",
     "@angular/router": "^5.0.0",
+    "angular-animate": "^1.6.7",
+    "angular2-svg-icons": "^1.1.1",
     "core-js": "^2.4.1",
     "font-awesome": "^4.7.0",
     "ng2-bootstrap": "^1.6.3",
