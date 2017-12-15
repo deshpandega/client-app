@@ -1,49 +1,94 @@
-<section id="about" class="bg-primary"><!--class="call-to-action bg-dark"-->
-  <div class="container">
-    <div class="col-lg-8 mx-auto text-center">
-      <h2 class="section-heading text-white">Edit Profile</h2>
-      <hr class="light">
-      <div class="panel-body">
-        <div class="row">
-          <div class="col-lg-1 col-md-1 col-sm-1"></div>
-          <div class="col-lg-10 col-md-10 col-sm-10">
-            <form id="editProfile-form" role="form" style="display: block;" [formGroup]="editProfileForm" [class.loading]="loading">
-              <div class="form-group">
-                <input type="text" name="fullName" id="fullName" formControlName="fullName" tabindex="1" class="form-control"
-                       placeholder="Full Name" value="">
-                <div *ngIf="fullNameControl.errors" class="error">
-                  <div *ngIf="fullNameControl.errors.required && (fullNameControl.touched || fullNameControl.dirty)">
-                    <i class="fa fa-exclamation-circle" style="color:red"></i>
-                    Required!
+<section id="work" style="margin-top: 20px;     padding: 80px 0;">
+  <div class="container" style="max-width: 1500px;">
+    <div class="row" >
+      <div class="col-md-4 col-sm-4 title" style="padding: unset">
+        <div class="tab" style="background-color: #222">
+          <button class="tablinks" (click)="openDiv()" style="    padding: 20px 40px;     font-family: 'Open Sans','Helvetica Neue',Arial,sans-serif;">Edit Profile</button>
+          <button class="tablinks" (click)="managePayment()" style="    padding: 20px 40px;     font-family: 'Open Sans','Helvetica Neue',Arial,sans-serif;">Manage Payments</button>
+        </div>
+      </div>
+        <div class="col-md-8 col-sm-8" *ngIf="currentDiv=='profile'">
+          <div class="col-md-12 col-sm-12 bg-red wow fadeIn">
+            <div class="row" style="height: -webkit-fill-available; padding-bottom: 70px;">
+              <div class="col-lg-12 mx-auto text-center" style="margin-top: 40px; max-height: max-content;">
+                <h2 class="section-heading text-white">Edit Profile</h2>
+                <hr class="light">
+              </div>
+              <div class="panel panel-login">
+              <div class="panel-body">
+                <div class="row">
+                  <div class="col-lg-1 col-md-1 col-sm-1 ">
+
+                  </div>
+                  <div class="col-lg-10 col-md-10 col-sm-10">
+                    <div class="col-lg-6mx" style="    margin: auto;">
+                      <form id="editProfile-form" role="form" style="display: block;" [formGroup]="editProfileForm" [class.loading]="loading">
+                        <div class="form-group">
+                          <label for="fullName" style="color: black;     width: 100px;">Full Name  </label>
+                          <input type="text" name="fullName" id="fullName" formControlName="fullName" tabindex="1" class="form-control"
+                                 placeholder="Full Name" style="width: 70%;
+    display: inline;">
+                          <div *ngIf="fullNameControl.errors" class="error">
+                            <div *ngIf="fullNameControl.errors.required && (fullNameControl.touched || fullNameControl.dirty)">
+                              <i class="fa fa-exclamation-circle" style="color:red"></i>
+                              Required!
+                            </div>
+                          </div>
+                        </div>
+                        <div class="form-group">
+                          <label for="aboutMe" style="color: black;     width: 100px;">About Me  </label>
+                          <input type="text" name="aboutMe" id="aboutMe" formControlName="aboutMe" tabindex="1"
+                                 class="form-control"
+                                 placeholder="About Me" style="width: 70%;
+    display: inline;">
+                        </div>
+                        <div class="form-group">
+                          <label for="dob" style="color: black;     width: 100px;">Date of Birth  </label>
+                          <input type="date" name="dob" id="dob" formControlName="dob" tabindex="2" class="form-control"
+                                 placeholder="Date of Birth" style="width: 70%;
+    display: inline;">
+
+                        </div>
+                        <div class="form-group">
+                          <label for="profileImage" style="color: black;     width: 100px;">Picture  </label>
+                          <input type="file" (change)="fileChange($event)" placeholder="Upload Image"
+                                 name="profileImage" id="profileImage" formControlName="profileImage" tabindex="2"
+                                 class="form-control" accept=".jpg,.jpeg,.png" style="width: 70%;
+    display: inline;">
+                        </div>
+                        <div class="form-group">
+                          <div class="row">
+                            <div class="col-sm-6 col-sm-offset-3" style="padding-left:5%;">
+                              <button type="submit"  tabindex="4" [disabled]="!loginForm.valid" class="btn btn-primary" style="align-self: center;background-color: #202020;
+                  margin-left: 150px;margin-top: 12px">Save</button>
+                            </div>
+                          </div>
+                        </div>
+                      </form>
+                    </div>
+                  </div>
+                  <div class="col-lg-1 col-md-1 col-sm-1">
+
                   </div>
                 </div>
-              </div>
-              <div class="form-group">
-                <input type="text" name="aboutMe" id="aboutMe" formControlName="aboutMe" tabindex="1"
-                       class="form-control"
-                       placeholder="About Me" value="">
-              </div>
-              <div class="form-group">
-                <input type="date" name="dob" id="dob" formControlName="dob" tabindex="2" class="form-control"
-                       placeholder="Date of Birth">
 
               </div>
-              <div class="form-group">
-                <input type="file" (change)="fileChange($event)" placeholder="Upload Image"
-                       name="profileImage" id="profileImage" formControlName="profileImage" tabindex="2"
-                       class="form-control" accept=".jpg,.jpeg,.png">
-              </div>
-              <div class="form-group">
-                <div class="row">
-                  <div class="col-sm-6 col-sm-offset-3" style="padding-left:5%;">
-                    <button type="submit"  tabindex="4" [disabled]="!loginForm.valid" class="btn btn-primary" style="align-self: center;background-color: #202020;
-                  margin-left: 245px;margin-top: 12px">Save</button>
-                  </div>
-                </div>
-              </div>
-            </form>
+            </div>
+              <!--<div class="col-lg-6 mx-auto text-center"></div>-->
+            </div>
           </div>
-          <div class="col-lg-1 col-md-1 col-sm-1"></div>
+        </div>
+
+      <div class="col-md-8 col-sm-8" *ngIf="currentDiv=='payment'">
+        <div class="col-md-12 col-sm-12 bg-red wow fadeIn" style="min-height: 339px;
+      max-height: 250px;">
+          <div class="row" style="height: -webkit-fill-available;">
+            <div class="col-lg-6 mx-auto text-center" style="margin-top: 40px;">
+              <h2 class="section-heading text-white">Modify Payment</h2>
+              <hr class="light">
+            </div>
+            <!--<div class="col-lg-6 mx-auto text-center"></div>-->
+          </div>
         </div>
       </div>
     </div>
