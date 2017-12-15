@@ -1,0 +1,39 @@
+<section class="bg-primary" id="events">
+        <div class="row">
+          <div class="col-lg-8 mx-auto text-center">
+				 <h2>  <input type="text" id="eventName" ng-model="name" placeholder="Event Name Goes Here"/><span ng-bind="name"></span></h2>
+						<hr class="light">
+						<h1 class="addImage">Add Banner</h1>
+			  </div>
+        </div>
+
+		</section>
+		<div class="container">
+    <section id="eventDetails" class="row">
+     <div class="col-lg-6">
+				<div class="col-lg-8 mx-auto text-center"> <h2>Event Details</h2></div><hr>
+			  <form>
+						<div class="form-group">
+								<label for="about">About Event:</label>
+								<textarea class="form-control" rows="5" id="comment"></textarea>
+							</div>
+						<div class="form-group">
+							<label for="venue">Venue:</label>
+							<input type="text" class="form-control" id="usr">
+						</div>
+						<div class="form-group">
+							<label for="City">City:</label>
+							<input type="password" class="form-control" id="pwd">
+						</div>
+					</form>
+		 </div>
+		 <div class="col-lg-6">
+				<div class="col-lg-8 mx-auto text-center"> <h2>Tag Hobbies</h2><hr>
+			<div class="border"><div class="well well-lg">Display Hobby Tags</div></div>
+					</div>
+		 </div>
+		 <button id="submitEvent">Create</button>
+
+    </section>
+    </div>
+
