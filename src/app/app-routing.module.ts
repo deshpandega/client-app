@@ -8,6 +8,7 @@ import {EventRegComponent} from "./event-reg/event-reg.component";
 import { AllEventsComponent } from "./all-events/all-events.component";
 import { EditProfileComponent } from "./editProfile/editProfile.component";
 import {AboutUsComponent} from "./about-us/about-us.component";
+import {CreateEventComponent} from "./create-event/create-event.component"
 
 const routes: Routes = [
   {
@@ -39,6 +40,11 @@ const routes: Routes = [
   {
     path: 'about-us',
     component: AboutUsComponent
+  },
+
+  {
+    path: 'create-event',
+    component: CreateEventComponent
   },
 
   {
