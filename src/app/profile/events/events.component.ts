@@ -16,20 +16,17 @@ export class EventsBody {
   user: User;
   events:any[];
   hostedevents:any[];
+  hobby: string;
 
   public constructor (private router : Router ,private _sharedService: SharedService, public http: Http)
   {
 
     this.token = this._sharedService.token;
-    console.log("profile Header----------------> "+this._sharedService.token);
 
-    //   this.user = this._sharedService.user;
-    //console.log("profile Header----------------> "+this._sharedService.user);
     this.authenticateToken();
   }
 
   authenticateToken(){
-    console.log(this.token);
     const sendData = {
       "generatedToken": this.token
     };
@@ -42,11 +39,8 @@ export class EventsBody {
     //Check proxy file for correct API call
     this.http.post('/session', sendData, requestOptions)
       .toPromise().then((res: Response)=>{
-      console.log(res);
       if(res.status == 200){
         this.user = res.json().user;
-        console.log(this.user);
-        console.log(this.user.name);
         this.token = this.user.token;
 
         this._sharedService.setToken(this.token);
@@ -56,15 +50,14 @@ export class EventsBody {
         this.getHostedEvents();
       }
     }).catch((error)=>{
-      console.log("invalid cred -> "+error.json());
 
       this._sharedService.setToken(' blank token ');
       this._sharedService.setUser(null);
     });
+    //this.getEvents();
   }
 
   getRegisteredEvents(){
-    console.log("----------------->>>"+this.user.name);
     const sendEventData = {
       "attendee" :{
         "name": this.user.name,
@@ -85,7 +78,6 @@ export class EventsBody {
 
       }
     }).catch((error)=>{
-      console.log("invalid cred -> "+error.json());
 
       this._sharedService.setToken(' blank token ');
       this._sharedService.setUser(null);
@@ -113,7 +105,6 @@ export class EventsBody {
 
       }
     }).catch((error)=>{
-      console.log("invalid cred -> "+error.json());
 
       this._sharedService.setToken(' blank token ');
       this._sharedService.setUser(null);

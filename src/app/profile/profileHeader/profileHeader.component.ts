@@ -18,7 +18,7 @@ public token : any;
 
 public constructor (private router : Router ,private _sharedService: SharedService, public http: Http)
 {
-        this.token = this._sharedService.token;
+  this.token = this._sharedService.token;
   this.authenticateToken();
 }
 

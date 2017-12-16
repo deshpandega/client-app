@@ -15,10 +15,40 @@
       <div class="col-md-6 col-sm-6 col-xs-6 wow fadeIn" data-wow-delay="1.3s">
         <div class="team-des" style="text-align: center;">
           <h3>Your registered events</h3>
-          <ul class="ulconfig">
-            <li class="liconfig" *ngFor="let event of events">{{event.name}}</li>
-            <!--<li class="liconfig">item1</li>-->
-          </ul>
+          <!--<ul class="ulconfig">-->
+            <!--<li class="liconfig" *ngFor="let event of events">{{event.name}}</li>-->
+          <!--</ul>-->
+          <div *ngFor="let getEvent of events" class="js-event-list-container l-mar-stack l-mar-top-2" data-automation="event-list-container">
+
+            <div class="list-card-v2 l-mar-top-2 js-d-poster">
+              <a routerLink="/event-reg" class="
+            list-card__main
+            js-event-link
+            js-xd-janus-checkpoint-link">
+                <div class="list-card__header">
+                  <div class="list-card__image">
+                    <img class="js-poster-image" src="../../assets/img/paint.jpg" alt="Painting Workshop">
+                  </div>
+                  <span *ngIf="getEvent.entryfree!== 0 " class="list-card__label" >{{getEvent.entryfree}}</span>
+                  <span *ngIf="getEvent.entryfree == 0 " class="list-card__label" >Free</span>
+                </div>
+                <div class="list-card__body">
+                  <time class="list-card__date" >
+                    {{getEvent.date}}<br>
+                    {{getEvent.duration}}
+                  </time>
+                  <span class="list-card__title" >
+                    {{getEvent.name}}
+                  </span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                  <span class="list-card__venue" >
+                    {{getEvent.venue}}
+                  </span>
+                </div>
+              </a>
+              <div class="list-card__footer">
+              </div>
+            </div>
+          </div>
         </div>
       </div>
       <div class="col-md-6 col-sm-6 col-xs-6 wow fadeIn" data-wow-delay="1.6s">
@@ -26,8 +56,38 @@
           <h3>Your own events</h3>
           <ul class="ulconfig">
             <li class="liconfig" *ngFor="let event of hostedevents">{{event.name}}</li>
-            <!--<li class="liconfig">item1</li>-->
           </ul>
+          <div *ngFor="let getEvent of hostedevents" class="js-event-list-container l-mar-stack l-mar-top-2" data-automation="event-list-container">
+
+            <div class="list-card-v2 l-mar-top-2 js-d-poster">
+              <a routerLink="/event-reg" class="
+            list-card__main
+            js-event-link
+            js-xd-janus-checkpoint-link">
+                <div class="list-card__header">
+                  <div class="list-card__image">
+                    <img class="js-poster-image" src="../../assets/img/paint.jpg" alt="Painting Workshop" >
+                  </div>
+                  <span *ngIf="getEvent.entryfree!== 0 " class="list-card__label" >{{getEvent.entryfree}}</span>
+                  <span *ngIf="getEvent.entryfree == 0 " class="list-card__label" >Free</span>
+                </div>
+                <div class="list-card__body">
+                  <time class="list-card__date" >
+                    {{getEvent.date}}<br>
+                    {{getEvent.duration}}
+                  </time>
+                  <div class="list-card__title" >
+                    {{getEvent.name}}
+                  </div>
+                  <div class="list-card__venue" >
+                    {{getEvent.venue}}
+                  </div>
+                </div>
+              </a>
+              <div class="list-card__footer">
+              </div>
+            </div>
+          </div>
         </div>
       </div>
     </div>

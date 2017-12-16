@@ -2,6 +2,7 @@ import {Component} from "@angular/core";
 import {Router} from "@angular/router";
 import {SharedService} from "../../shared/shared.service";
 import {Http, Response, RequestOptions, Headers} from "@angular/http";
+import {FormGroup, FormBuilder,  FormControl} from "@angular/forms";
 import { User } from "../../shared/user.model";
 import 'rxjs/add/operator/map';
 
@@ -15,21 +16,24 @@ export class HobbieDetails{
   public token : any;
   user: User;
   hobbies:any[];
-  hobbi:any[];
+  hobby: any;
+  allHobbi:any[];
+  addHobbyForm: FormGroup;
 
-  public constructor (private router : Router ,private _sharedService: SharedService, public http: Http)
-  {
 
+  public constructor (private formBuilder: FormBuilder, private router : Router ,private _sharedService: SharedService, public http: Http) {
     this.token = this._sharedService.token;
-    console.log("profile Header----------------> "+this._sharedService.token);
-
-    //   this.user = this._sharedService.user;
-    //console.log("profile Header----------------> "+this._sharedService.user);
+    this.buildForm();
     this.authenticateToken();
   }
 
+  buildForm(){
+    this.addHobbyForm=this.formBuilder.group({
+      hobbies: this.formBuilder.control('')
+    });
+  };
+
   authenticateToken(){
-    console.log(this.token);
     const sendData = {
       "generatedToken": this.token
     };
@@ -42,18 +46,14 @@ export class HobbieDetails{
     //Check proxy file for correct API call
     this.http.post('/session', sendData, requestOptions)
       .toPromise().then((res: Response)=>{
-      console.log(res);
       if(res.status == 200){
         this.user = res.json().user;
-        console.log(this.user);
-        console.log(this.user.name);
         this.token = this.user.token;
 
         this._sharedService.setToken(this.token);
         this._sharedService.setUser(this.user);
       }
     }).catch((error)=>{
-      console.log("invalid cred -> "+error.json());
 
       this._sharedService.setToken(' blank token ');
       this._sharedService.setUser(null);
@@ -61,11 +61,8 @@ export class HobbieDetails{
     this.getAllHobbies();
   }
 
-  getAllHobbies(){
-    const sendData = {
-      "generatedToken": this.token
-    };
 
+  getAllHobbies(){
     const headers = new Headers();
     headers.append('Content-Type', 'application/json');
 
@@ -75,25 +72,47 @@ export class HobbieDetails{
     this.http.get('/getHobbies', requestOptions)
       .toPromise().then((res: Response)=>{
       if(res.status == 200){
-        this.hobbies = res.json();
-        console.log(".................................." +res.json());
-        // for(var i=0;i<this.hobbies.length; i++){
-        //   console.log(this.hobbies[i]);
-        // }
-        for(var hobby in this.hobbies){
-          console.log(this.hobbies[hobby]['name']);
-          this.hobbi.push(this.hobbies[hobby]['name']);
-        }
-        this.token = this.user.token;
 
-        this._sharedService.setToken(this.token);
-        this._sharedService.setUser(this.user);
+        this.allHobbi = res.json();
       }
     }).catch((error)=>{
-      console.log("invalid cred -> "+error.json());
 
       this._sharedService.setToken(' blank token ');
       this._sharedService.setUser(null);
+    });
+  }
+
+
+  addHobby(){
+    console.log("Lets add hobbies");
+    const selectedHobbies = this.addHobbyForm.get('hobbies').value;
+
+    console.log(selectedHobbies);
+
+    const userData : User = this.user;
+    const hobbies = {
+      "name":selectedHobbies
+    };
+    const sendData = {
+      "user":userData,
+      "hobbies":hobbies,
+      taks:'addHobby'
+    };
+
+    const headers = new Headers();
+    headers.append('Content-Type', 'application/json');
+
+    const requestOptions = new RequestOptions({headers: headers});
+
+    //Check proxy file for correct API call
+    this.http.post('/addHobbies', sendData, requestOptions)
+      .toPromise().then((res: Response)=>{
+      console.log(res);
+      if(res.status == 200){
+        console.log(res+ " hobbies added");
+      }
+    }).catch((error)=>{
+      console.log("invalid cred -> "+error);
     });
   }
 }

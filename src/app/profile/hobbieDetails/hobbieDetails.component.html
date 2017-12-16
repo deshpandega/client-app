@@ -15,10 +15,11 @@
               <div class="team-des" style="text-align: center;">
                 <h3>Your Hobbies</h3>
                 <ul class="ulconfig">
-                  <li class="liconfig" *ngFor="let item of user.hobbies">
-                    {{item.name}}
-                  </li>
-                  <!--<li class="liconfig">item1</li>-->
+                  <span *ngIf="user.hobbies">
+                    <li class="liconfig" *ngFor="let item of user.hobbies">
+                      {{item.name}}
+                    </li>
+                  </span>
                 </ul>
               </div>
             </div>
@@ -28,12 +29,19 @@
     max-height: 250px;">
           <div class="row" style="height: -webkit-fill-available;">
             <div class="col-lg-6 mx-auto text-center" style="margin-top: 40px;">
-                <h2 class="section-heading text-white">Add new hobby</h2>
-                <hr class="light">
+              <h2 class="section-heading text-white">Add new hobby</h2>
+              <hr class="light">
+              <form role="form" id="addHobbyForm" [formGroup]="addHobbyForm" (ngSubmit)="addHobby()" >
+                <div class="form-group">
                 <span>
-                  <!--<label for="location">Search Hobbies</label>-->
-                <input type="text" class="form-control" id="location" placeholder="Search Hobby here" style="display: inline; width: 55%">
-                <button type="submit" tabindex="5" class="btn btn-primary" style="align-self: center; background-color: #222; margin-left: 20px;">Search</button></span>
+                  <select class="form-control form-control-lg" formControlName="hobbies" id="hobbies" name="hobbies">
+                    <option *ngFor="let hobby of allHobbi" value="{{hobby.name}}">{{hobby.name}}</option>
+                  </select>
+                  <!--<input type="text" class="form-control" id="location" placeholder="Search Hobby here" style="display: inline; width: 55%">-->
+                  <button type="submit" tabindex="5" class="btn btn-primary" style="align-self: center; background-color: #222; margin-left: 20px;">Add</button>
+                </span>
+                </div>
+              </form>
             </div>
             <!--<div class="col-lg-6 mx-auto text-center"></div>-->
           </div>
