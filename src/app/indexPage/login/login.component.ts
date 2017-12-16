@@ -38,7 +38,7 @@ export class Login implements OnInit{
   token:string;
 
   // Constructor to inject things
-  constructor(private formBuilder: FormBuilder, public http: Http, private _sharedService: SharedService){
+  constructor(private formBuilder: FormBuilder, public http: Http, private _sharedService: SharedService, private router: Router){
     this.token=this._sharedService.token;
     this.user=this._sharedService.user;
     this.buildForm();
@@ -140,6 +140,7 @@ export class Login implements OnInit{
           this._sharedService.token = this.token;
           this._sharedService.setUser(this.user);
           console.log("in logic component" + this._sharedService.token);
+          this.router.navigate(['/profile']);
         }
       }).catch((error)=>{
         console.log("invalid cred -> "+error.json());
@@ -199,6 +200,7 @@ export class Login implements OnInit{
 
           this._sharedService.setToken(this.token);
           this._sharedService.setUser(this.user);
+          this.router.navigate(['/profile']);
         }
       }).catch((error)=>{
         console.log("invalid cred -> "+error.json());
