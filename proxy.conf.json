@@ -66,6 +66,13 @@
     "secure": false,
     "changeOrigin": true,
     "logLevel":"debug"
+  },
+
+  "/postEvent":{
+    "target":"https://openwhisk.ng.bluemix.net/api/v1/web/ichalkaranje.m%40husky.neu.edu_dev/hobbylocale/postEvent",
+    "secure": false,
+    "changeOrigin": true,
+    "logLevel":"debug"
   }
 
 
