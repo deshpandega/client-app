@@ -77,7 +77,7 @@ export class EventRegComponent implements OnInit {
       console.log(this.event.attendee[key]);
 
 
-      if(this.user.email== this.event.host.name)
+      if(this.user.email== this.event.host.email||this.event.attendee['email']==this.user.email)
       {
         alert("Cannot be Registered");
       }
