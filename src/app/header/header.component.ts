@@ -2,6 +2,7 @@ import {Component} from '@angular/core';
 import {SharedService} from "../shared/shared.service";
 import {OnInit} from '@angular/core';
 import {Http, Response, RequestOptions, Headers} from "@angular/http";
+import {Router} from "@angular/router";
 import {User} from "../shared/user.model";
 
 @Component({
@@ -14,7 +15,7 @@ export class HeaderComponent{
   token: string;
   user: User;
   
-  constructor(private _sharedService: SharedService, public http: Http) { 
+  constructor(private _sharedService: SharedService, public http: Http, private router: Router) { 
     this._sharedService.tokenValue$.subscribe(
       token=>{
         this.token = token;
@@ -25,6 +26,9 @@ export class HeaderComponent{
       user=>{
         this.user = user;
         console.log(user);
+        if(user == null || user == undefined){
+          this.router.navigate(['/index']);
+        }
       })
   }
 

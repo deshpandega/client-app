@@ -22,7 +22,7 @@
             <a href="#"><img id="site-title" src="./assets/img/2.jpg" alt="" style="width: 200px;height: 230px;"/></a>
             <figcaption>
               <div class="heading">
-                <h3 style="padding-top: 20px; color: black"><b>{{user.name}}</b></h3></div>
+                <h3 style="padding-top: 20px; color: black"><b *ngIf="user">{{user.name}}</b></h3></div>
             </figcaption>
           </figure>
        </span>
@@ -62,19 +62,19 @@
             </div>
             <div class="row">
               <div class="col-lg-3" ><h5 style="color: darkorange">About Me: </h5></div>
-              <div class="col-lg-9" style="text-align: left">
+              <div class="col-lg-9" style="text-align: left" *ngIf="user">
                 {{user.aboutme}}
               </div>
             </div>
             <div class="row">
               <div class="col-lg-3" ><h5 style="color: darkorange">Email: </h5></div>
-              <div class="col-lg-9" style="text-align: left">
+              <div class="col-lg-9" style="text-align: left" *ngIf="user">
                 {{user.email}}
               </div>
             </div>
             <div class="row">
               <div class="col-lg-3" ><h5 style="color: darkorange">Date of Birth: </h5></div>
-              <div class="col-lg-9" style="text-align: left">
+              <div class="col-lg-9" style="text-align: left" *ngIf="user">
                 {{user.dob}}
               </div>
             </div>
