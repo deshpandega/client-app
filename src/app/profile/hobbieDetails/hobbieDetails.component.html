@@ -15,8 +15,10 @@
               <div class="team-des" style="text-align: center;">
                 <h3>Your Hobbies</h3>
                 <ul class="ulconfig">
-                  <li class="liconfig">item1</li>
-                  <li class="liconfig">item1</li>
+                  <li class="liconfig" *ngFor="let item of user.hobbies">
+                    {{item.name}}
+                  </li>
+                  <!--<li class="liconfig">item1</li>-->
                 </ul>
               </div>
             </div>

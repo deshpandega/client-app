@@ -17,11 +17,29 @@
     "changeOrigin": true,
     "logLevel":"debug"
   },
+  "/getRegisteredEvents":{
+    "target":"https://openwhisk.ng.bluemix.net/api/v1/web/ichalkaranje.m%40husky.neu.edu_dev/hobbylocale/getRegisteredEvents",
+    "secure": false,
+    "changeOrigin": true,
+    "logLevel":"debug"
+  },
+  "/getHostedEvents":{
+    "target":"https://openwhisk.ng.bluemix.net/api/v1/web/ichalkaranje.m%40husky.neu.edu_dev/hobbylocale/getHostedEvents",
+    "secure": false,
+    "changeOrigin": true,
+    "logLevel":"debug"
+  },
   "/session":{
   "target":"https://openwhisk.ng.bluemix.net/api/v1/web/ichalkaranje.m%40husky.neu.edu_dev/hobbylocale/session",
   "secure": false,
   "changeOrigin": true,
   "logLevel":"debug"
+  },
+  "/getHobbies":{
+    "target":"https://openwhisk.ng.bluemix.net/api/v1/web/ichalkaranje.m%40husky.neu.edu_dev/hobbylocale/getHobbies",
+    "secure": false,
+    "changeOrigin": true,
+    "logLevel":"debug"
   },
   "/addUser":{
     "target":"https://openwhisk.ng.bluemix.net/api/v1/web/ichalkaranje.m%40husky.neu.edu_dev/hobbylocale/postUser",
@@ -34,5 +52,21 @@
     "secure": false,
     "changeOrigin": true,
     "logLevel":"debug"
+  },
+
+  "/getEvents":{
+    "target":"https://openwhisk.ng.bluemix.net/api/v1/web/ichalkaranje.m%40husky.neu.edu_dev/hobbylocale/getEvents",
+    "secure": false,
+    "changeOrigin": true,
+    "logLevel":"debug"
+  },
+
+  "/searchEventsByHobby":{
+    "target":"https://openwhisk.ng.bluemix.net/api/v1/web/ichalkaranje.m%40husky.neu.edu_dev/hobbylocale/searchEventsByHobby",
+    "secure": false,
+    "changeOrigin": true,
+    "logLevel":"debug"
   }
+
+
 }
