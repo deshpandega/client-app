@@ -15,26 +15,20 @@
         <li class="nav-item" *ngIf="!user">
           <a class="navbar-brand js-scroll-trigger" href="#login">Login/Register</a>
         </li>
-        <li class="nav-item">
-          <a class="navbar-brand js-scroll-trigger" href="#about">About Us</a>
-        </li>
         <li class="nav-item" *ngIf="user">
           <a class="navbar-brand js-scroll-trigger" routerLink="/profile">Profile</a>
-        </li>
-        <li class="nav-item" *ngIf="user">
-          <a class="navbar-brand js-scroll-trigger" routerLink="/event-reg">EventReg</a>
         </li>
         <li class="nav-item">
           <a class="navbar-brand js-scroll-trigger" routerLink="/all-events">Events</a>
         </li>
         <li class="nav-item" *ngIf="user">
           <div class="dropdown show">
-            <a href="#" class="btn btn-secondary dropdown-toggle" id="dropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-              <!-- <img class="profilePhoto" [src]="'data:image/jpg;base64,'+user.profileIcon"/> -->
+            <a href="#" class="btn btn-secondary" id="dropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
               {{user.name}}
             </a>
           </div>
         </li>
+         <button *ngIf="user" type="submit" class="btn btn-danger" style="align-self: center;" (click)="logout()"><i class="fa fa-times" aria-hidden="true"></i> Logout</button>
       </ul>
     </div>
   </div>
