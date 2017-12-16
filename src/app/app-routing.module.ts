@@ -10,6 +10,7 @@ import { EditProfileComponent } from "./editProfile/editProfile.component";
 import {AboutUsComponent} from "./about-us/about-us.component";
 import {CreateEventComponent} from "./create-event/create-event.component"
 
+
 const routes: Routes = [
   {
     path: 'index',

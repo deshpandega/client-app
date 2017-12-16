@@ -34,5 +34,21 @@
     "secure": false,
     "changeOrigin": true,
     "logLevel":"debug"
+  },
+
+  "/getEvents":{
+    "target":"https://openwhisk.ng.bluemix.net/api/v1/web/ichalkaranje.m%40husky.neu.edu_dev/hobbylocale/getEvents",
+    "secure": false,
+    "changeOrigin": true,
+    "logLevel":"debug"
+  },
+
+  "/searchEventsByHobby":{
+    "target":"https://openwhisk.ng.bluemix.net/api/v1/web/ichalkaranje.m%40husky.neu.edu_dev/hobbylocale/searchEventsByHobby",
+    "secure": false,
+    "changeOrigin": true,
+    "logLevel":"debug"
   }
+
+
 }
