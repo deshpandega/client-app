@@ -1,8 +1,12 @@
 
 #events{
-	/**background: url("./assets/img/eventBanner.jpg");*/
+	background: url("/assets/img/eventBanner.jpg");
 	background-repeat: no-repeat;
     background-size: cover;
+}
+
+#createEventsform{
+	background-color: rgba(128, 128, 128, 0.158);
 }
 .addImage{
 	color:gray;
