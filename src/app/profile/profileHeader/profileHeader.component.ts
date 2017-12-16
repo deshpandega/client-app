@@ -14,12 +14,23 @@ import 'rxjs/add/operator/map';
 export class ProfileHeader{
 
 public token : any;
-  user: User;
+user: User;
 
 public constructor (private router : Router ,private _sharedService: SharedService, public http: Http)
 {
         this.token = this._sharedService.token;
   this.authenticateToken();
+  this._sharedService.tokenValue$.subscribe(
+    token=>{
+      this.token = token;
+      console.log("In header component->> "+this.token);
+    });
+
+  this._sharedService.userValue$.subscribe(
+    user=>{
+      this.user = user;
+      console.log("In header component->> "+user);
+    })
 }
 
   authenticateToken(){
