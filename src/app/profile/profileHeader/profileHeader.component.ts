@@ -23,7 +23,7 @@ public constructor (private router : Router ,private _sharedService: SharedServi
 }
 
   authenticateToken(){
-    console.log(this.token);
+    console.log("myToken profileHeader"+ this.token);
     const sendData = {
       "generatedToken": this.token
     };

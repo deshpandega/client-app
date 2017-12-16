@@ -9,4 +9,5 @@ export interface User{
   hobbies: any[];
   registeredevents: any[];
   hostedevents: any[];
+  payments: any[]
 }
