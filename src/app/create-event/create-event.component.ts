@@ -101,6 +101,7 @@ export class CreateEventComponent{
       console.log("----------------->"+this.createEventForm.get('hobbyTags').value);
 
       const eventData : Event = {
+        eid:"",
         name: this.createEventForm.get('eventName').value,
         venue: this.createEventForm.get('venue').value,
         description: this.createEventForm.get('aboutEvent').value,
@@ -113,6 +114,7 @@ export class CreateEventComponent{
         attendee:null,
         rating:null,
         comments:null
+
       };
 
       //Construct data to be sent to backend because in login-action,

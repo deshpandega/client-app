@@ -14,16 +14,16 @@ import { User } from "../shared/user.model";
 })
 export class EventCreateComponent implements OnInit{
   createEventForm: FormGroup;
-  
+
     loading:Boolean = false;
     event:Event;
     hobbies:any;
     user:User;
     errorUserLogin:string;
-  
+
     //Token to check authentication of users
     public token:any;
-  
+
     nameControl;
     venueControl;
     descriptionControl;
@@ -38,14 +38,14 @@ export class EventCreateComponent implements OnInit{
       this.buildForm();
       this.loadHobbies();
     }
-  
+
     // InIt method makes things ready when component is loaded
     ngOnInit(){
       if(this.token!='' && this.token!=null && this.token!=undefined){
         console.log('token present without login');
       }
     }
-  
+
     // Builds the form for client side validation
     buildForm(){
       console.log("Inside Build Form");
@@ -62,7 +62,7 @@ export class EventCreateComponent implements OnInit{
       console.log('---->'+this.createEventForm.get('eventName').valid);
       this.nameControl = this.createEventForm.get('eventName');
       this.nameControl.valueChanges.subscribe(value=>{ });
-      
+
       this.venueControl=this.createEventForm.get('venue');
       this.venueControl.valueChanges.subscribe(value=>{});
 
@@ -97,11 +97,11 @@ export class EventCreateComponent implements OnInit{
         }
       });
     }
-  
+
     // Authenticate user by calling login-action from OW
     createEventMethod(){
       this.loading = true;
-  
+
       console.log("hello.. we are in create event method");
       const formValues = Object.assign({},this.createEventForm.value);
       const hobbies=this.createEventForm.get('hobbies').value;
@@ -119,7 +119,7 @@ export class EventCreateComponent implements OnInit{
     //  console.log("----------------->"+this.createEventForm.get('hobbyTags').value);
 
       const eventData : Event = {
-      
+        eid: "",
         name: this.createEventForm.get('eventName').value,
         venue: this.createEventForm.get('venue').value,
         description: this.createEventForm.get('description').value,
@@ -133,18 +133,18 @@ export class EventCreateComponent implements OnInit{
         rating:null,
         comments:null
       };
-  
+
       //Construct data to be sent to backend because in login-action,
       // we take user out from parameters and then take individual properties of this user
       const sendData = {
         "event": eventData
       };
-  
+
       const headers = new Headers();
       headers.append('Content-Type', 'application/json');
-  
+
       const requestOptions = new RequestOptions({headers: headers});
-  
+
       //Check proxy file for correct API call
       this.http.post('/postEvent', sendData, requestOptions)
         // .map((res: Response) => res)
@@ -152,7 +152,7 @@ export class EventCreateComponent implements OnInit{
           this.loading = false;
           if(res.status == 200){
             this.createEventForm.reset();
-  
+
             this.event = res.json();
             console.log(this.event);
             this._sharedService.setToken(this.token);
@@ -161,7 +161,7 @@ export class EventCreateComponent implements OnInit{
           else if(res.status == 401){
             console.log('Invalid credentials');
             this.errorUserLogin = res.json();
-  
+
             this._sharedService.setToken(null);
             this._sharedService.setUser(null);
           }

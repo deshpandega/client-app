@@ -17,6 +17,7 @@ export class EventRegComponent implements OnInit {
   public token:any;
   public event:any;
   user:User;
+  giveCom:string;
 
 
   constructor(private router:Router, public http: Http, private _sharedService: SharedService) {
@@ -30,6 +31,8 @@ export class EventRegComponent implements OnInit {
   }
 
   ngOnInit() {
+
+
 
     console.log("---EVENT IS HERE OUTSIDE"+ this.event.host.email);
   }
@@ -150,4 +153,62 @@ export class EventRegComponent implements OnInit {
   }
 
 
-}
+  sendCom() {
+
+
+    console.log("hello.. we are in add comment to event");
+
+
+
+    const commentAdded = {
+      commenter:this.user.name,
+      created:"12-12-12",
+      comment:this.giveCom,
+
+    };
+
+    //Construct data to be sent to backend because in login-action,
+    // we take user out from parameters and then take individual properties of this user
+    const sendData = {
+      "commentAdded": commentAdded,
+
+      "eventId":this.event.eid,
+    };
+
+
+    console.log("comMENTER" + commentAdded.commenter);
+    console.log("comment" + this.giveCom);
+    console.log("comment" + this.event.eid);
+
+    const headers = new Headers();
+    headers.append('Content-Type', 'application/json');
+
+    const requestOptions = new RequestOptions({headers: headers});
+
+    //Check proxy file for correct API call
+    this.http.post('/addCommentToEvent', sendData, requestOptions)
+    // .map((res: Response) => res)
+      .subscribe((res) => {
+
+        console.log("I AM HERE!!");
+        if (res.status == 200) {
+
+          //attendee = res.json();
+          console.log("WORKEDDDDD!!");
+          // this.token = res.headers.get('token')[0];
+
+          // this._sharedService.setToken(this.token);
+          // this._sharedService.setUser(this.card);
+        }
+        else if (res.status == 401) {
+          console.log('Invalid credentials');
+          //this.errorUserLogin = res.json();
+
+          this._sharedService.setToken(null);
+          this._sharedService.setUser(null);
+        }
+      });
+  }
+
+
+  }

@@ -136,6 +136,7 @@
 
 
     Reviews & Comments
+    <div>
     <div *ngIf="!event.comments" class="alert alert-warning">No Reviews/Comments</div>
     <div *ngFor="let comment of event.comments" class="alert alert-warning">
         <label class="commenter ">{{comment.commenter}} Commented:</label>
@@ -145,6 +146,12 @@
               <label class="reply">{{reply.reply}}</label>
           </div>
     </div>
+      <div class="form-control">
+        <textarea id="giveCom" name="giveCom" placeholder="Enter Comment" [(ngModel)]="giveCom" type="text">
+
+        </textarea>
+        <button  class="btn-search" (click)="sendCom()">Comment</button></div>
+
     <div data-attr="done" hov-ad-rendered="true" hov-ad-unbind="true" class="_abmMainAdContainer" style="height: auto; width: 100%; text-align: center; padding: 0px; margin: auto; position: relative; overflow: hidden; background: transparent;">
       <div class="_abmAdContainer" style="position:relative;margin:5px auto;padding:0;left: -33.5px;width:728px;height:90px;-moz-transform:scale(0.907967032967033);-o-transform: scale(0.907967032967033);-webkit-transform:scale(0.907967032967033);transform:scale(0.907967032967033);overflow:hidden;">
       </div>
@@ -179,5 +186,6 @@
 
 </div>
 
+</div>
 </div>
 

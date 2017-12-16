@@ -79,7 +79,15 @@
     "secure": false,
     "changeOrigin": true,
     "logLevel":"debug"
+  },
+
+  "/addCommentToEvent":{
+    "target":"https://openwhisk.ng.bluemix.net/api/v1/web/ichalkaranje.m%40husky.neu.edu_dev/hobbylocale/addCommentToEvent",
+    "secure": false,
+    "changeOrigin": true,
+    "logLevel":"debug"
   }
+
 
 
 
