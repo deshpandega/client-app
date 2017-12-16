@@ -19,31 +19,26 @@
   <button class="btn-clear" *ngIf="showHide" (click)="getEvents()">Clear All
   </button></div>
 
-  <div *ngFor="let getEvent of events" class="js-event-list-container l-mar-stack l-mar-top-2" data-automation="event-list-container">
+  <div *ngFor="let event of events" class="js-event-list-container l-mar-stack l-mar-top-2" data-automation="event-list-container">
 
        <div class="list-card-v2 l-mar-top-2 js-d-poster">
 
-      <a routerLink="/event-reg" class="
-            list-card__main
-            js-event-link
-
-            js-xd-janus-checkpoint-link
-
-        ">
+      <a  class="list-card__main js-event-link js-xd-janus-checkpoint-link">
         <div class="list-card__header">
           <div class="list-card__image">
             <img class="js-poster-image" src="../../assets/img/paint.jpg" alt="Painting Workshop">
           </div>
-          <span *ngIf="getEvent.entryfree!== 0 " class="list-card__label">{{getEvent.entryfree}}</span>
-          <span *ngIf="getEvent.entryfree == 0 " class="list-card__label">Free</span>
+          <span *ngIf="event.entryfree!== 0 " class="list-card__label">{{event.entryfree}}</span>
+          <span *ngIf="event.entryfree == 0 " class="list-card__label">Free</span>
         </div>
         <div class="list-card__body">
           <time class="list-card__date">
 
 
 
-            {{getEvent.date}}<br>
-            {{getEvent.duration}}
+            {{event.date}}<br>
+            {{event.duration}}
+
 
 
 
@@ -51,10 +46,11 @@
 
           </time>
           <div class="list-card__title">
-            {{getEvent.name}}
+            {{event.name}}
+            <button class="btn-details" [routerLink]="['/event-reg']" (click)="getDetails(myevent=event)">Details</button>
           </div>
           <div class="list-card__venue">
-            {{getEvent.venue}}
+            {{event.venue}}
           </div>
         </div>
       </a>
@@ -64,7 +60,7 @@
         <div class="list-card__tags">
 
 
-         <a *ngFor="let hobby of getEvent.hobbies " class ="hTags" href="/d/ma--cambridge/music--events/">#{{hobby.name}}&nbsp;&nbsp;<span>
+         <a *ngFor="let hobby of event.hobbies " class ="hTags" href="/d/ma--cambridge/music--events/">#{{hobby.name}}&nbsp;&nbsp;<span>
 
          </span>
 

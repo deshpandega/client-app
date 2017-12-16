@@ -3,9 +3,9 @@ import {Subject} from "rxjs/Subject";
 
 @Injectable()
 export class SharedService{
- 
-  public tokenSource = new Subject<any>();
+   public tokenSource = new Subject<any>();
   public tokenValue$ = this.tokenSource.asObservable();
+
 
   public userSource = new Subject<any>();
   public userValue$ = this.userSource.asObservable();
@@ -17,10 +17,13 @@ export class SharedService{
   setUser(user:any){
     this.userSource.next(user);
   }
+  
+  public event:any;
 
 public token:any;
 public user:any;
 
   public storage :any;
   constructor() {}
-}
+
+
