@@ -4,18 +4,24 @@
       <div class="col-lg-8 mx-auto text-center">
         <h1 class="section-heading text-white">Events</h1>
         <hr class="light">
-        <label for="hobbies">Search Events Based On Your Interest</label>
-        <input type="text" class="form-control" id="hobbies" placeholder="Enter hobby">
+        <label for="hobby">Search Events Based On Your Interest</label>
+        <div class="form-control">
+        <input type="text"  id="hobby" name="hobby" placeholder="Enter hobby" #model="ngModel" [(ngModel)]="hobby" [pattern]="'^[a-zA-Z \-\']*$'">
+        <button class="btn-search" (click)="searchEvents(); showHide = !showHide">Search</button>
+          <div *ngIf="model.invalid" style="color: red">Enter proper hobby</div>
+        </div>
         <hr>
       </div>
     </div>
   </div>
 
+<div class="clear">
+  <button class="btn-clear" *ngIf="showHide" (click)="getEvents()">Clear All
+  </button></div>
 
+  <div *ngFor="let getEvent of events" class="js-event-list-container l-mar-stack l-mar-top-2" data-automation="event-list-container">
 
-  <div class="js-event-list-container l-mar-stack l-mar-top-2" data-automation="event-list-container">
-
-<div class="list-card-v2 l-mar-top-2 js-d-poster">
+       <div class="list-card-v2 l-mar-top-2 js-d-poster">
 
       <a routerLink="/event-reg" class="
             list-card__main
@@ -28,15 +34,16 @@
           <div class="list-card__image">
             <img class="js-poster-image" src="../../assets/img/paint.jpg" alt="Painting Workshop">
           </div>
-          <span class="list-card__label">Free</span>
+          <span *ngIf="getEvent.entryfree!== 0 " class="list-card__label">{{getEvent.entryfree}}</span>
+          <span *ngIf="getEvent.entryfree == 0 " class="list-card__label">Free</span>
         </div>
         <div class="list-card__body">
           <time class="list-card__date">
 
 
 
-           Dec 2017,2017<br>
-            5:00 PM - 7:00PM
+            {{getEvent.date}}<br>
+            {{getEvent.duration}}
 
 
 
@@ -44,11 +51,10 @@
 
           </time>
           <div class="list-card__title">
-            Painting Workshop
+            {{getEvent.name}}
           </div>
           <div class="list-card__venue">
-
-            595 Commonwealth Avenue , Cambridge
+            {{getEvent.venue}}
           </div>
         </div>
       </a>
@@ -58,14 +64,11 @@
         <div class="list-card__tags">
 
 
-          <a href="/d/ma--cambridge/music--events/">#Painting</a>
+         <a *ngFor="let hobby of getEvent.hobbies " class ="hTags" href="/d/ma--cambridge/music--events/">#{{hobby.name}}&nbsp;&nbsp;<span>
 
+         </span>
 
-
-
-          <a href="/d/ma--cambridge/performances/">#Art</a>
-
-
+         </a><br>
 
 
         </div>
@@ -88,11 +91,10 @@
 
 
 
-
-
-
-
-
   </div>
+
+
+
+
 
 </section>
