@@ -40,7 +40,7 @@ export class Login implements OnInit{
   // Constructor to inject things
   constructor(private formBuilder: FormBuilder, public http: Http, private _sharedService: SharedService){
     this.token=this._sharedService.token;
-    this.authenticateToken();
+    this.user=this._sharedService.user;
     this.buildForm();
     this.registerForm();
   }
@@ -49,7 +49,7 @@ export class Login implements OnInit{
   ngOnInit(){
     if(this.token!='' && this.token!=null && this.token!=undefined){
       console.log('token present without login');
-      this.authenticateUser();
+      this.authenticateToken();
     }
   }
 
@@ -77,7 +77,6 @@ export class Login implements OnInit{
       passwordRegister: this.formBuilder.control('', Validators.required),
       confirm_passwordRegister: this.formBuilder.control('', Validators.required)
     });
-    console.log('---->'+this.registrationForm.get('usernameRegister').valid);
     this.usernameRegisterControl = this.registrationForm.get('usernameRegister');
     this.usernameRegisterControl.valueChanges.subscribe(value=>{ });
 

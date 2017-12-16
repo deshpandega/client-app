@@ -1,6 +1,7 @@
 import {Component} from '@angular/core';
 import {SharedService} from "../shared/shared.service";
 import {OnInit} from '@angular/core';
+import {Http, Response, RequestOptions, Headers} from "@angular/http";
 import {User} from "../shared/user.model";
 
 @Component({
@@ -13,9 +14,7 @@ export class HeaderComponent{
   token: string;
   user: User;
   
-  constructor(private _sharedService: SharedService) { }
-
-  ngOnInit(){
+  constructor(private _sharedService: SharedService, public http: Http) { 
     this._sharedService.tokenValue$.subscribe(
       token=>{
         this.token = token;
@@ -27,5 +26,33 @@ export class HeaderComponent{
         this.user = user;
         console.log(user);
       })
+  }
+
+  ngOnInit(){
+    
   };
+
+  logout(){
+    this.token=null;
+    this.user = null;
+    
+    const headers = new Headers();
+    headers.append('Content-Type', 'application/json');
+    const requestOptions = new RequestOptions({headers: headers});
+
+    this.http.post('/logout', this.token, requestOptions)
+      .toPromise().then((res: Response)=>{
+        console.log(res);
+          this.token = res.json();
+
+          this._sharedService.setToken(res.json());
+          this._sharedService.token = res.json();
+          this._sharedService.setUser(null);
+          this._sharedService.user=null;
+        }).catch((error)=>{
+        console.log("invalid cred -> "+error.json());
+          this._sharedService.setToken(' blank token ');
+          this._sharedService.setUser(null);
+      });
+    };
 }
