@@ -7,7 +7,7 @@ export interface Event{
     date: Date;
     duration:String;
     entryFee: number;
-    attendee: [ 
+    attendee: [
       {
         email:String,
         name:String,
@@ -33,5 +33,4 @@ export interface Event{
 export interface Hobby{
   name:String
 }
- 
-  
+

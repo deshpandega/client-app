@@ -31,16 +31,13 @@
       </div>
     </div>
     <br>
-    <div class="button __left">
+
+    <div *ngIf="user" class="button __left" >
 
       <div class="tab-content">
         <div class="more-register">
-          <span class="register btn _cuatro">Register</span>
+          <button class="register btn _cuatro" (click)="btnClick()" >Register</button>
         </div>
-
-
-
-
       </div>
 
     </div>
@@ -62,7 +59,9 @@
         <div class= "entry-ticket">
           <div class="calander-date">
             <i class="fa fa-ticket" aria-hidden="true"></i>
-            <span class="__event-date" name="entry-fees">FREE</span>
+            <span *ngIf="event.entryFee!== 0 " class="__event-date" name="entry-fees">${{event.entryFee}}</span>
+            <span *ngIf="event.entryFee == 0 " class="__event-date" name="entry-fees">Free</span>
+
           </div>
         </div>
         <div class="date-time">
@@ -142,7 +141,7 @@
       </div>
 
       <div class="cast" id="cast">
-        <div class="__heading">Members</div>
+        <div class="__heading">People Attending</div>
         <div class="cast-members showcase" id="cast-carousel">
           <div class="showcase-carousel slick-initialized slick-slider">
             <div aria-live="polite" class="slick-list draggable">
@@ -150,7 +149,7 @@
 
             <span *ngFor="let attend of event.attendee" class="slick-slide slick-current slick-active" data-slick-index="0" aria-hidden="false" style="width: 151px;">
              <span class="member-details" name="member-details">
-            <img class="member-reg" title="Member1" src="../../assets/img/host.jpg">
+            <img class="member-reg" title="Member1" src="../../assets/img/user.png">
             <div class="member-name">{{attend.name}}</div>
             <br>
             <br>
