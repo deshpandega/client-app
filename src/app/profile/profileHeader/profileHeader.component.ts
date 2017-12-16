@@ -18,20 +18,7 @@ public token : any;
 
 public constructor (private router : Router ,private _sharedService: SharedService, public http: Http)
 {
-
- this._sharedService.storage = {
-            "firstname": "Gaurang",
-            "lastname": "Deshpande",
-            "address": {
-                "city": "Boston",
-                "state": "Mass"
-            }
-        }
         this.token = this._sharedService.token;
-    console.log("profile Header----------------> "+this._sharedService.token);
-
- //   this.user = this._sharedService.user;
-  //console.log("profile Header----------------> "+this._sharedService.user);
   this.authenticateToken();
 }
 
@@ -49,11 +36,8 @@ public constructor (private router : Router ,private _sharedService: SharedServi
     //Check proxy file for correct API call
     this.http.post('/session', sendData, requestOptions)
       .toPromise().then((res: Response)=>{
-      console.log(res);
       if(res.status == 200){
         this.user = res.json().user;
-        console.log(this.user);
-        console.log(this.user.name);
         this.token = this.user.token;
 
         this._sharedService.setToken(this.token);
