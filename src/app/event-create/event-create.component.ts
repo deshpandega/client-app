@@ -125,7 +125,7 @@ export class EventCreateComponent implements OnInit{
         description: this.createEventForm.get('description').value,
         hobbies:hobArr,
         date: this.createEventForm.get('date').value,
-        duration: this.createEventForm.get('eventStartTime').value+"to"+this.createEventForm.get('eventEndTime').value,
+        duration: this.createEventForm.get('eventStartTime').value+" to "+this.createEventForm.get('eventEndTime').value,
         entryFee:  null,
         banner: null,
         host: usr,
