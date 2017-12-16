@@ -32,7 +32,7 @@
                    <img  src="../../assets/img/cardlogo.png" alt="card logos" height="60" width="550" style="padding-left:50px;">
                   </div>
                   <div class="form-group">
-                    <input type="text" name="cardHolderName" id="cardHolderName" formControlName="cardHolderName" tabindex="1" class="form-control" placeholder="Card Holder Name" value="">
+                    <input type="text" name="cardHolderName" id="cardHolderName" formControlName="cardHolderName" tabindex="1" class="form-control" placeholder="Card Holder Name" value="" tabindex="1" maxlength="10" size="10">
                     <div *ngIf="cardNameControl.errors" class="error">
                       <div *ngIf="cardNameControl.errors.required && (cardNameControl.touched || cardNameControl.dirty)">
                         <i class="fa fa-exclamation-circle" style="color:red"></i>
@@ -41,7 +41,7 @@
                     </div>
                   </div>
                   <div class="form-group">
-                    <input type="text" name="cardNumber" id="cardNumber" formControlName="cardNumber" tabindex="1" class="form-control" placeholder="Card Number" value="">
+                    <input type="password" name="cardNumber" id="cardNumber" formControlName="cardNumber" tabindex="1" class="form-control" placeholder="Card Number" value="" tabindex="2" maxlength="10" size="10">
                     <div *ngIf="cardNumberControl.errors" class="error">
                       <div *ngIf="cardNumberControl.errors.required && (cardNumberControl.touched || cardNumberControl.dirty)">
                         <i class="fa fa-exclamation-circle" style="color:red"></i>
@@ -50,7 +50,7 @@
                     </div>
                   </div>
                    <div class="form-group">
-                    <select name="cardMonth" id="cardMonth" formControlName="cardMonth" class="form-control" style = "color:grey">
+                    <select name="cardMonth" id="cardMonth" formControlName="cardMonth" class="form-control" style = "color:grey" tabindex="3">
                       <option value="" selected disabled>Month</option>
 					  <option value="January">January</option>
 					  <option value="February">February</option>
@@ -73,7 +73,7 @@
                     </div>
                 </div>
                 <div class="form-group">
-                   <select name="cardYear" id="cardYear" formControlName="cardYear" class="form-control" style = "color:grey">
+                   <select name="cardYear" id="cardYear" formControlName="cardYear" class="form-control" style = "color:grey" tabindex="4">
                       <option value="" selected disabled>Year</option>
 					  <option value="2017">2017</option>
 					  <option value="2018">2018</option>
@@ -88,7 +88,7 @@
                     </div>
                   </div>
                    <div class="form-group">
-                    <input type="text" name="cardCVV" id="cardCVV" formControlName="cardCVV" tabindex="1" class="form-control" placeholder="CCV" value="">
+                    <input type="text" name="cardCVV" id="cardCVV" formControlName="cardCVV" tabindex="1" class="form-control" placeholder="CCV" value="" tabindex="5" maxlength="3" size="3">
                     <div *ngIf="cardCCVControl.errors" class="error">
                       <div *ngIf="cardCCVControl.errors.required && (cardCCVControl.touched || cardCCVControl.dirty)">
                         <i class="fa fa-exclamation-circle" style="color:red"></i>
@@ -103,6 +103,20 @@
                       </div>
                     </div>
                   </div>
+			<div class="panel panel-login">
+            <div class="panel-heading" style="width: 80%; margin: 0px auto">
+            <div class="row">
+              <div class="col-xs-5">
+                  <div style="color:orange;font-weight: bold;">Manage Payments</div>
+                  	<ul>
+                    <li *ngFor="let payment of user.payments">
+                      <div>******{{payment.cardNumber}}</div>
+                    </li>
+                  	</ul>
+				</div>
+				</div>
+			</div>
+			</div>
                 </form>
               </div>
               <div class="col-lg-1 col-md-1 col-sm-1"></div>
