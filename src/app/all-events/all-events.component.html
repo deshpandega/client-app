@@ -28,8 +28,8 @@
           <div class="list-card__image">
             <img class="js-poster-image" src="../../assets/img/paint.jpg" alt="Painting Workshop">
           </div>
-          <span *ngIf="event.entryfree!== 0 " class="list-card__label">{{event.entryfree}}</span>
-          <span *ngIf="event.entryfree == 0 " class="list-card__label">Free</span>
+          <span *ngIf="event.entryFee!== 0 " class="list-card__label">${{event.entryFee}}</span>
+          <span *ngIf="event.entryFee == 0 " class="list-card__label">Free</span>
         </div>
         <div class="list-card__body">
           <time class="list-card__date">
