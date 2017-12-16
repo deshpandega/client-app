@@ -3,7 +3,7 @@ font-weight: bold;
 }
 
 .replier{
-  
+
 }
 
 .comment{
@@ -611,4 +611,15 @@ blockquote, q {
 
 .member-name{
   width:95%;
+}
+
+#giveCom{
+  width:80%
+
+}
+
+.btn-search{
+  color:white;margin-left: 16px;
+  background: #eb5424;
+  height: 35px;
 }

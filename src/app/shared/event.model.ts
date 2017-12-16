@@ -1,4 +1,5 @@
 export interface Event{
+  eid:string;
     name:string;
     venue:string;
     host: {name:string,email:string,profileIcon:String};
