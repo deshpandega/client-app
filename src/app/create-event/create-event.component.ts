@@ -5,14 +5,14 @@ import {Http, Response, RequestOptions, Headers} from "@angular/http";
 import { Event } from "../shared/event.model";
 
 @Component({
-  selector: 'createEvent',
-  templateUrl: './createEvent.component.html',
-  styleUrls: ['./createEvent.component.css']
+  selector: 'create-event',
+  templateUrl: './create-event.component.html',
+  styleUrls: ['./create-event.component.css']
 })
 
 export class CreateEventComponent{
   createEventForm: FormGroup;
-  
+
   nameControl;
   venueControl;
   descriptionControl;
@@ -26,20 +26,20 @@ export class CreateEventComponent{
   attendeeControl;
   ratingControl;
   commentsControl;
-  
+
     loading:Boolean = false;
     event:Event;
-  
+
     errorUserLogin:string;
-  
+
     //Token to check authentication of users
     token:string;
-  
+
     // Constructor to inject things
     constructor(private formBuilder: FormBuilder, public http: Http, private _sharedService: SharedService){
       this.buildForm();
     }
-  
+
     // InIt method makes things ready when component is loaded
     ngOnInit(){
       if(this.token!='' && this.token!=null && this.token!=undefined){
@@ -47,7 +47,7 @@ export class CreateEventComponent{
         this.createEventMethod();
       }
     }
-  
+
     // Builds the form for client side validation
     buildForm(){
       this.createEventForm=this.formBuilder.group({
@@ -64,16 +64,16 @@ export class CreateEventComponent{
         rating:this.formBuilder.control('', Validators.required),
         comments:this.formBuilder.control('', Validators.required),
       });
-  
+
       this.nameControl = this.createEventForm.get('eventName');
       this.nameControl.valueChanges.subscribe(value=>{ });
-  
+
       this.venueControl = this.createEventForm.get('venue');
       this.venueControl.valueChanges.subscribe(value=>{ });
-  
+
       this.descriptionControl = this.createEventForm.get('aboutEvent');
       this.descriptionControl.valueChanges.subscribe(value=>{ });
-  
+
       this.hobbiesControl = this.createEventForm.get('hobbytags');
       this.hobbiesControl.valueChanges.subscribe(value=>{ });
 
@@ -89,17 +89,17 @@ export class CreateEventComponent{
       this.entryFeeControl = this.createEventForm.get('eventFee');
       this.entryFeeControl.valueChanges.subscribe(value=>{ });
     };
-  
+
     // Authenticate user by calling login-action from OW
     createEventMethod(){
       this.loading = true;
-  
+
       console.log("hello.. we are in create event method");
       const formValues = Object.assign({},this.createEventForm.value);
-  
+
       //Get values from validated form and generate event object
       const eventData : Event = {
-      
+
         name: this.createEventForm.get('eventHolderName').value,
         venue: this.createEventForm.get('venue').value,
         description: this.createEventForm.get('aboutEvent').value,
@@ -113,18 +113,18 @@ export class CreateEventComponent{
         rating:null,
         comments:null
       };
-  
+
       //Construct data to be sent to backend because in login-action,
       // we take user out from parameters and then take individual properties of this user
       const sendData = {
         "event": eventData
       };
-  
+
       const headers = new Headers();
       headers.append('Content-Type', 'application/json');
-  
+
       const requestOptions = new RequestOptions({headers: headers});
-  
+
       //Check proxy file for correct API call
       this.http.post('/createEvent', sendData, requestOptions)
         // .map((res: Response) => res)
@@ -132,24 +132,24 @@ export class CreateEventComponent{
           this.loading = false;
           if(res.status == 200){
             this.createEventForm.reset();
-  
+
             this.event = res.json();
             console.log(this.event);
             // this.token = res.headers.get('token')[0];
-  
+
             // this._sharedService.setToken(this.token);
             // this._sharedService.setUser(this.event);
           }
           else if(res.status == 401){
             console.log('Invalid credentials');
             this.errorUserLogin = res.json();
-  
+
             this._sharedService.setToken(null);
             this._sharedService.setUser(null);
           }
         });
-  
+
       // console.log(this.loginForm.get('usernameLogin').value+" <----> "+this.loginForm.get('passwordLogin').value);
     }
-  
+
 }
