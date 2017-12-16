@@ -24,16 +24,17 @@ import { ProfileHeader } from "./profile/profileHeader/profileHeader.component";
 import { EventsBody } from "./profile/events/events.component";
 import { HobbieDetails } from "./profile/hobbieDetails/hobbieDetails.component";
 import { EditProfileComponent } from "./editProfile/editProfile.component";
-
 import { AllEventsComponent } from './all-events/all-events.component';
 import { AboutUsComponent } from './about-us/about-us.component';
+import { EventCreateComponent } from './event-create/event-create.component';
 
 @NgModule({
   declarations: [
     AppComponent, IndexPage, HeaderComponent, Carousal, Events, Categories, Login, About, FooterComponent,
     ProfileComponent, EventRegComponent, EqualValidator,PaymentComponent, ProfileHeader, EventsBody, HobbieDetails, AllEventsComponent,
     EditProfileComponent,
-    AboutUsComponent
+    AboutUsComponent,
+    EventCreateComponent
   ],
   imports: [
     BrowserModule, FormsModule, ReactiveFormsModule, HttpModule, RouterModule, AppRoutingModule
