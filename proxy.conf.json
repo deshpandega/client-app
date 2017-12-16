@@ -5,6 +5,12 @@
     "changeOrigin": true,
     "logLevel":"debug"
   },
+  "/addHobbies":{
+    "target":"https://openwhisk.ng.bluemix.net/api/v1/web/ichalkaranje.m%40husky.neu.edu_dev/hobbylocale/editUser",
+    "secure": false,
+    "changeOrigin": true,
+    "logLevel":"debug"
+  },
   "/profiles":{
     "target":"https://192.168.33.13/api/v1/web/guest/hobbylocale/",
     "secure": false,

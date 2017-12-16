@@ -22,10 +22,10 @@
                   </div>
                   <div class="col-lg-10 col-md-10 col-sm-10">
                     <div class="col-lg-6mx" style="    margin: auto;">
-                      <form id="editProfile-form" role="form" style="display: block;" [formGroup]="editProfileForm" [class.loading]="loading">
+                      <form id="editProfile-form" role="form" style="display: block;" [formGroup]="editProfileForm" (ngSubmit)="editDetails()" >
                         <div class="form-group">
-                          <label for="fullName" style="color: black;     width: 100px;">Full Name  </label>
-                          <input type="text" name="fullName" id="fullName" formControlName="fullName" tabindex="1" class="form-control"
+                          <label for="name" style="color: black;     width: 100px;">Full Name  </label>
+                          <input type="text" name="name" id="name" formControlName="name" tabindex="1" class="form-control"
                                  placeholder="Full Name" style="width: 70%;
     display: inline;">
                           <div *ngIf="fullNameControl.errors" class="error">
@@ -36,8 +36,8 @@
                           </div>
                         </div>
                         <div class="form-group">
-                          <label for="aboutMe" style="color: black;     width: 100px;">About Me  </label>
-                          <input type="text" name="aboutMe" id="aboutMe" formControlName="aboutMe" tabindex="1"
+                          <label for="aboutme" style="color: black;     width: 100px;">About Me  </label>
+                          <input type="text" name="aboutme" id="aboutme" formControlName="aboutme" tabindex="1"
                                  class="form-control"
                                  placeholder="About Me" style="width: 70%;
     display: inline;">
@@ -50,16 +50,16 @@
 
                         </div>
                         <div class="form-group">
-                          <label for="profileImage" style="color: black;     width: 100px;">Picture  </label>
+                          <label for="image" style="color: black;     width: 100px;">Picture  </label>
                           <input type="file" (change)="fileChange($event)" placeholder="Upload Image"
-                                 name="profileImage" id="profileImage" formControlName="profileImage" tabindex="2"
+                                 name="image" id="image" formControlName="image" tabindex="2"
                                  class="form-control" accept=".jpg,.jpeg,.png" style="width: 70%;
     display: inline;">
                         </div>
                         <div class="form-group">
                           <div class="row">
                             <div class="col-sm-6 col-sm-offset-3" style="padding-left:5%;">
-                              <button type="submit"  tabindex="4" [disabled]="!loginForm.valid" class="btn btn-primary" style="align-self: center;background-color: #202020;
+                              <button type="submit"  tabindex="4" [disabled]="!editProfileForm.valid" class="btn btn-primary" style="align-self: center;background-color: #202020;
                   margin-left: 150px;margin-top: 12px">Save</button>
                             </div>
                           </div>

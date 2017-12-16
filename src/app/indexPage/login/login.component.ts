@@ -106,7 +106,7 @@ export class Login implements OnInit{
       name: null,
       dob: null,
       profileIcon: null,
-      hobbies: null,
+      hobbies: [{"name":""}],
       aboutme: null,
       hostedevents: null,
       registeredevents: null,
@@ -119,7 +119,7 @@ export class Login implements OnInit{
     const sendData = {
       "user": userData
     };
-    
+
     const headers = new Headers();
     headers.append('Content-Type', 'application/json');
 
@@ -167,7 +167,7 @@ export class Login implements OnInit{
       name: this.registrationForm.get('usernameRegister').value,
       dob: null,
       profileIcon: null,
-      hobbies: null,
+      hobbies: [{"name":""}],
       aboutme: null,
       hostedevents: null,
       registeredevents: null,
@@ -209,12 +209,12 @@ export class Login implements OnInit{
           this._sharedService.setToken(' blank token ');
           this._sharedService.setUser(null);
       });
-      
+
     // .map((res: Response) => res)
       // .subscribe((res)=>{
       //   this.loading = false;
       //   if(res.status == 200){
-          
+
 
       //     this.user = res.json();
       //     console.log(this.user);

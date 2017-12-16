@@ -18,7 +18,7 @@ user: User;
 
 public constructor (private router : Router ,private _sharedService: SharedService, public http: Http)
 {
-        this.token = this._sharedService.token;
+  this.token = this._sharedService.token;
   this.authenticateToken();
   this._sharedService.tokenValue$.subscribe(
     token=>{
