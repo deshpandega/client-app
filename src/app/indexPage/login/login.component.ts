@@ -107,7 +107,8 @@ export class Login implements OnInit{
       aboutme: null,
       hostedevents: null,
       registeredevents: null,
-      token: ''
+      token: '',
+      payments : null
     };
 
     //Construct data to be sent to backend because in login-action,
@@ -167,7 +168,8 @@ export class Login implements OnInit{
       aboutme: null,
       hostedevents: null,
       registeredevents: null,
-      token: ''
+      token: '',
+      payments : null
     };
 
     // Construct data to be sent to backend because in login-action,

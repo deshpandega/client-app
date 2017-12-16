@@ -28,6 +28,9 @@
               <div class="col-lg-1 col-md-1 col-sm-1"></div>
               <div class="col-lg-10 col-md-10 col-sm-10">
                 <form id="payment-form" role="form" [formGroup]="paymentForm" (ngSubmit)="addPaymentMethod()" [class.loading]="loading">
+                   <div class="form-group">
+                   <img  src="../../assets/img/cardlogo.png" alt="card logos" height="60" width="550" style="padding-left:50px;">
+                  </div>
                   <div class="form-group">
                     <input type="text" name="cardHolderName" id="cardHolderName" formControlName="cardHolderName" tabindex="1" class="form-control" placeholder="Card Holder Name" value="">
                     <div *ngIf="cardNameControl.errors" class="error">

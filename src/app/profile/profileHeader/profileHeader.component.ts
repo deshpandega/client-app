@@ -28,7 +28,8 @@ public constructor (private router : Router ,private _sharedService: SharedServi
             }
         }
         this.token = this._sharedService.token;
-    console.log("profile Header----------------> "+this._sharedService.token);
+   // console.log("profile Header----------------> "+this._sharedService.token);
+
 
  //   this.user = this._sharedService.user;
   //console.log("profile Header----------------> "+this._sharedService.user);
@@ -36,7 +37,7 @@ public constructor (private router : Router ,private _sharedService: SharedServi
 }
 
   authenticateToken(){
-    console.log(this.token);
+    console.log("myToken profileHeader"+ this.token);
     const sendData = {
       "generatedToken": this.token
     };

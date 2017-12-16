@@ -1,8 +1,11 @@
 import {Component, OnInit} from "@angular/core";
 import {SharedService} from "../shared/shared.service";
+import {Router} from "@angular/router";
 import {FormGroup, FormBuilder, FormControl, Validators} from "@angular/forms";
 import {Http, Response, RequestOptions, Headers} from "@angular/http";
+import { User } from "../shared/user.model";
 import { Card } from "../shared/card.model";
+import 'rxjs/add/operator/map';
 
 @Component({
   selector: 'payment',
@@ -27,23 +30,26 @@ export class PaymentComponent implements OnInit{
   errorUserLogin:string;
 
   //Token to check authentication of users
-  token:string;
+ 	public token : any;
+    user: User;
 
-	public person : any;
+	//public person : any;
   // Constructor to inject things
-  constructor(private formBuilder: FormBuilder, public http: Http, private _sharedService: SharedService){
+  constructor(private router : Router ,private formBuilder: FormBuilder, public http: Http, private _sharedService: SharedService){
     this.buildForm();
 
-    this.person = this._sharedService.storage;
-    console.log("----------------> payment_component : Hello "+this._sharedService.storage.firstname + "" + this._sharedService.storage.lastname);
+    //this.person = this._sharedService.storage;
+    //console.log("----------------> payment_component : Hello "+this._sharedService.storage.firstname + "" + this._sharedService.storage.lastname);
+	this.token = this._sharedService.token;
+     this.authenticateToken();
   }
 
   // InIt method makes things ready when component is loaded
   ngOnInit(){
-    if(this.token!='' && this.token!=null && this.token!=undefined){
-      console.log('token present without login');
-      this.addPaymentMethod();
-    }
+   // if(this.token!='' && this.token!=null && this.token!=undefined){
+     // console.log('token present without login');
+      //this.addPaymentMethod();
+    //}
   }
 
   // Builds the form for client side validation
@@ -129,5 +135,38 @@ console.log("hello.. we are in add payment method");
 
     // console.log(this.loginForm.get('usernameLogin').value+" <----> "+this.loginForm.get('passwordLogin').value);
   }
+
+  authenticateToken(){
+    console.log("myToken : payment"+ this.token);
+    const sendData = {
+      "generatedToken": this.token
+    };
+
+    const headers = new Headers();
+    headers.append('Content-Type', 'application/json');
+
+    const requestOptions = new RequestOptions({headers: headers});
+
+    //Check proxy file for correct API call
+    this.http.post('/session', sendData, requestOptions)
+      .toPromise().then((res: Response)=>{
+      console.log(res);
+      if(res.status == 200){
+        this.user = res.json().user;
+        console.log("my user" + this.user);
+        console.log("my user name " + this.user.name);
+        this.token = this.user.token;
+
+        this._sharedService.setToken(this.token);
+        this._sharedService.setUser(this.user);
+      }
+    }).catch((error)=>{
+      console.log("invalid cred -> "+error.json());
+
+      this._sharedService.setToken(' blank token ');
+      this._sharedService.setUser(null);
+    });
+  }
+
 
 }
