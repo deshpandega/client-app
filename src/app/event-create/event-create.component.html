@@ -100,9 +100,9 @@
        <div class="col-lg-6">
           <div class="col-lg-8 mx-auto text-center"> <h2>Tag Hobbies</h2><hr>
           <select class="form-control form-control-lg" formControlName="hobbies" id="hobbies" name="hobbies" multiple>
-              <option value="dancing">Dancing</option>
-              <option value="painting">Painting</option>
-              <option value="Arts">Arts</option>
+              <option *ngFor="let hobby of hobbies;" value="{{hobby.name}}">{{i}} {{hobby.name}}</option>
+          <!--    <option value="painting">Painting</option>
+              <option value="Arts">Arts</option>-->
             </select>
           </div> 
        </div>	
