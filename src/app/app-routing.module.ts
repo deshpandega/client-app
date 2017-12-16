@@ -9,7 +9,7 @@ import { AllEventsComponent } from "./all-events/all-events.component";
 import { EditProfileComponent } from "./editProfile/editProfile.component";
 import {AboutUsComponent} from "./about-us/about-us.component";
 import {EventCreateComponent} from "./event-create/event-create.component"
-
+import { TermsAndConditionsComponent } from './terms-and-conditions/terms-and-conditions.component';
 
 const routes: Routes = [
   {
@@ -46,12 +46,16 @@ const routes: Routes = [
     path: 'about-us',
     component: AboutUsComponent
   },
-
+  {
+    path: 'termsAndConditions',
+    component: TermsAndConditionsComponent
+  },
   {
     path: '',
     redirectTo: 'index',
     pathMatch: 'full'
   }
+
 ];
 
 @NgModule({

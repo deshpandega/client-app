@@ -27,6 +27,7 @@ import { EditProfileComponent } from "./editProfile/editProfile.component";
 import { AllEventsComponent } from './all-events/all-events.component';
 import { AboutUsComponent } from './about-us/about-us.component';
 import { EventCreateComponent } from './event-create/event-create.component';
+import { TermsAndConditionsComponent } from './terms-and-conditions/terms-and-conditions.component';
 
 @NgModule({
   declarations: [
@@ -34,7 +35,8 @@ import { EventCreateComponent } from './event-create/event-create.component';
     ProfileComponent, EventRegComponent, EqualValidator,PaymentComponent, ProfileHeader, EventsBody, HobbieDetails, AllEventsComponent,
     EditProfileComponent,
     AboutUsComponent,
-    EventCreateComponent
+    EventCreateComponent,
+    TermsAndConditionsComponent
   ],
   imports: [
     BrowserModule, FormsModule, ReactiveFormsModule, HttpModule, RouterModule, AppRoutingModule

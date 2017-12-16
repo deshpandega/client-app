@@ -155,10 +155,8 @@ export class EventCreateComponent implements OnInit{
   
             this.event = res.json();
             console.log(this.event);
-            // this.token = res.headers.get('token')[0];
-  
-            // this._sharedService.setToken(this.token);
-            // this._sharedService.setUser(this.event);
+            this._sharedService.setToken(this.token);
+            this._sharedService.setUser(this.event);
           }
           else if(res.status == 401){
             console.log('Invalid credentials');
@@ -189,7 +187,6 @@ export class EventCreateComponent implements OnInit{
         console.log("my user" + this.user);
         console.log("my user name " + this.user.name);
         this.token = this.user.token;
-
         this._sharedService.setToken(this.token);
         this._sharedService.setUser(this.user);
       }
