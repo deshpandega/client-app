@@ -3,7 +3,7 @@ import {Subject} from "rxjs/Subject";
 
 @Injectable()
 export class SharedService{
- 
+
   private tokenSource = new Subject<any>();
   tokenValue$ = this.tokenSource.asObservable();
 
@@ -17,4 +17,6 @@ export class SharedService{
   setUser(user:any){
     this.userSource.next(user);
   }
+  public event:any;
 }
+
