@@ -17,6 +17,12 @@
     "changeOrigin": true,
     "logLevel":"debug"
   },
+  "/session":{
+  "target":"https://openwhisk.ng.bluemix.net/api/v1/web/ichalkaranje.m%40husky.neu.edu_dev/hobbylocale/session",
+  "secure": false,
+  "changeOrigin": true,
+  "logLevel":"debug"
+  },
   "/addUser":{
     "target":"https://openwhisk.ng.bluemix.net/api/v1/web/ichalkaranje.m%40husky.neu.edu_dev/hobbylocale/postUser",
     "secure": false,
