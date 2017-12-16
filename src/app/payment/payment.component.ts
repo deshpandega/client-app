@@ -29,9 +29,13 @@ export class PaymentComponent implements OnInit{
   //Token to check authentication of users
   token:string;
 
+	public person : any;
   // Constructor to inject things
   constructor(private formBuilder: FormBuilder, public http: Http, private _sharedService: SharedService){
     this.buildForm();
+
+    this.person = this._sharedService.storage;
+    console.log("----------------> payment_component : Hello "+this._sharedService.storage.firstname + "" + this._sharedService.storage.lastname);
   }
 
   // InIt method makes things ready when component is loaded

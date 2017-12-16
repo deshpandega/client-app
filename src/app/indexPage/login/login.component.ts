@@ -134,7 +134,9 @@ export class Login implements OnInit{
           this.token = this.user.token;
 
           this._sharedService.setToken(this.token);
+          this._sharedService.token = this.token;
           this._sharedService.setUser(this.user);
+          console.log("in logic component" + this._sharedService.token);
         }
       }).catch((error)=>{
         console.log("invalid cred -> "+error.json());
