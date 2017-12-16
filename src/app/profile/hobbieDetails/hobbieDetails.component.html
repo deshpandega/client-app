@@ -15,9 +15,9 @@
               <div class="team-des" style="text-align: center;">
                 <h3>Your Hobbies</h3>
                 <ul class="ulconfig">
-                  <span *ngIf="user.hobbies">
+                  <span *ngIf="user">
                     <li class="liconfig" *ngFor="let item of user.hobbies">
-                      {{item.name}}
+                      <span *ngIf="item">{{item.name}}</span>
                     </li>
                   </span>
                 </ul>
@@ -38,7 +38,7 @@
                     <option *ngFor="let hobby of allHobbi" value="{{hobby.name}}">{{hobby.name}}</option>
                   </select>
                   <!--<input type="text" class="form-control" id="location" placeholder="Search Hobby here" style="display: inline; width: 55%">-->
-                  <button type="submit" tabindex="5" class="btn btn-primary" style="align-self: center; background-color: #222; margin-left: 20px;">Add</button>
+                  <button type="submit" tabindex="5" class="btn btn-primary" style="align-self: center; background-color: #222; margin: 20px;">Add</button>
                 </span>
                 </div>
               </form>
