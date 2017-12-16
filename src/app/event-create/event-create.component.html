@@ -1,0 +1,112 @@
+<div>
+<form class="bg-primary" id="createEventForm" [formGroup]="createEventForm" role="form" (ngSubmit)="createEventMethod()" >
+ <div class="form-group"> 
+  <section class="bg-primary" id="events">
+          <div class="row">
+            <div class="col-lg-8 mx-auto text-center">
+                <h1 class="addImage" onClick="getElementById('click').click()">Add Banner</h1>
+                    <input type="file" class="fileButton" accept="image/*" id="click">
+            </div>
+          </div>
+    </section>
+</div>
+  <div class="bg-dark container" >
+      <section id="eventDetails" class="row">
+            <div class="col-lg-6">
+                <div class="col-lg-8 mx-auto text-center"> <h2>Event Details</h2></div><hr>
+                  <div class="form-row">
+                      <div class="form-group col-md-12">
+                          <label for="eventName">Event Name</label>
+                            <input type="text" class="form-control" formControlName="eventName" name="eventName" id="eventName" placeholder="Event Name">
+                            <div *ngIf="nameControl.errors" class="error">
+                              <div *ngIf="nameControl.errors.required && (nameControl.touched || nameControl.dirty)">
+                                <i class="fa fa-exclamation-circle" style="color:red"></i>
+                                Required!
+                              </div>
+                            </div>
+                      </div>
+                      <div class="form-row">
+                        <div class="form-group col-md-12">
+                           <label for="description">Event Details</label>
+                           <input type="text"  class="form-control" formControlName="description" name="description" id="description">
+                           <div *ngIf="descriptionControl.errors" class="error">
+                            <div *ngIf="descriptionControl.errors.required && (descriptionControl.touched || descriptionControl.dirty)">
+                              <i class="fa fa-exclamation-circle" style="color:red"></i>
+                              Required!
+                            </div>
+                          </div>
+                        </div>
+                       </div>
+                  </div>
+                  <div class="form-group">
+                      <label for="venue">Venue</label>
+                        <input type="text" class="form-control" formControlName="venue" name="venue" id="venue" placeholder="1234 Main St">
+                        <div *ngIf="venueControl.errors" class="error">
+                        <div *ngIf="venueControl.errors.required && (venueControl.touched || venueControl.dirty)">
+                            <i class="fa fa-exclamation-circle" style="color:red"></i>
+                            Required!
+                          </div>
+                        </div>
+                  </div>
+  
+    <div class="form-row">
+     <div class="form-group col-md-6">
+        <label for="date">Date</label>
+        <input type="date" class="form-control" formControlName="date" name="date" id="date">
+        <div *ngIf="dateControl.errors" class="error">
+          <div *ngIf="dateControl.errors.required && (dateControl.touched || dateControl.dirty)">
+              <i class="fa fa-exclamation-circle" style="color:red"></i>
+              Required!
+            </div>
+          </div>  
+      </div>
+    </div>
+    <div class="form-row">
+     <div class="form-group col-md-6">
+        <label for="eventStartTime">Time From:</label>
+        <input type="time" class="form-control" formControlName="eventStartTime" name="eventStartTime" id="eventStartTime">
+        <div *ngIf="eventStartTimeControl.errors" class="error">
+          <div *ngIf="eventStartTimeControl.errors.required && (eventStartTimeControl.touched || eventStartTimeControl.dirty)">
+            <i class="fa fa-exclamation-circle" style="color:red"></i>
+            Required!
+          </div>
+        </div>
+      </div>
+     <div class="form-group col-md-6">
+        <label for="eventEndTime">To:</label>
+        <input type="time" class="form-control" formControlName="eventEndTime" name="eventEndTime" id="eventEndTime">
+        <div *ngIf="eventEndTimeControl.errors" class="error">
+          <div *ngIf="eventEndTimeControl.errors.required && (eventEndTimeControl.touched || eventEndTimeControl.dirty)">
+            <i class="fa fa-exclamation-circle" style="color:red"></i>
+            Required!
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="form-row">
+      <div class="form-group col-md-6">
+         <label for="entryFee">Entry Fee:</label>
+         <input type="number" class="form-control" formControlName="entryFee" name="entryFee" id="entryFee">
+         <div *ngIf="entryFeeControl.errors" class="error">
+          <div *ngIf="entryFeeControl.errors.required && (entryFeeControl.touched || entryFeeControl.dirty)">
+            <i class="fa fa-exclamation-circle" style="color:red"></i>
+            Required!
+          </div>
+        </div>
+      </div>
+    </div>
+    <button type="submit" class="btn btn-primary" >Create Event</button>
+       </div>
+       <div class="col-lg-6">
+          <div class="col-lg-8 mx-auto text-center"> <h2>Tag Hobbies</h2><hr>
+          <select class="form-control form-control-lg" formControlName="hobbies" id="hobbies" name="hobbies" multiple>
+              <option value="dancing">Dancing</option>
+              <option value="painting">Painting</option>
+              <option value="Arts">Arts</option>
+            </select>
+          </div> 
+       </div>	
+      </section>
+  </div>
+</form>
+ </div>
