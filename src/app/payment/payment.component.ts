@@ -37,7 +37,7 @@ export class PaymentComponent implements OnInit{
   // Constructor to inject things
   constructor(private router : Router ,private formBuilder: FormBuilder, public http: Http, private _sharedService: SharedService){
     this.buildForm();
-
+	//console.log("MMMMYYYYYY TESTTTT" + this.user.payments);
     //this.person = this._sharedService.storage;
     //console.log("----------------> payment_component : Hello "+this._sharedService.storage.firstname + "" + this._sharedService.storage.lastname);
 	this.token = this._sharedService.token;
@@ -85,7 +85,7 @@ export class PaymentComponent implements OnInit{
   addPaymentMethod(){
     this.loading = true;
 
-console.log("hello.. we are in add payment method");
+	console.log("hello.. we are in add payment method");
     const formValues = Object.assign({},this.paymentForm.value);
 
     //Get values from validated form and generate user object
@@ -101,7 +101,8 @@ console.log("hello.. we are in add payment method");
     //Construct data to be sent to backend because in login-action,
     // we take user out from parameters and then take individual properties of this user
     const sendData = {
-      "card": cardData
+       "users": this.user,
+      "payments": cardData
     };
 
     const headers = new Headers();
@@ -155,6 +156,8 @@ console.log("hello.. we are in add payment method");
         this.user = res.json().user;
         console.log("my user" + this.user);
         console.log("my user name " + this.user.name);
+     //   console.log("my user payments " + this.user.payments);
+        this.token = this.user.token;
         this.token = this.user.token;
 
         this._sharedService.setToken(this.token);
