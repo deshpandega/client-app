@@ -241,3 +241,9 @@ color:white;
   margin-right: auto
 
 }
+
+.btn-details{
+  color:white;
+  background: #f05f40;
+  float:right;
+}

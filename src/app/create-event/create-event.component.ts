@@ -96,11 +96,12 @@ export class CreateEventComponent{
 
       console.log("hello.. we are in create event method");
       const formValues = Object.assign({},this.createEventForm.value);
-
       //Get values from validated form and generate event object
-      const eventData : Event = {
 
-        name: this.createEventForm.get('eventHolderName').value,
+      console.log("----------------->"+this.createEventForm.get('hobbyTags').value);
+
+      const eventData : Event = {
+        name: this.createEventForm.get('eventName').value,
         venue: this.createEventForm.get('venue').value,
         description: this.createEventForm.get('aboutEvent').value,
         hobbies: this.createEventForm.get('hobbyTags').value,

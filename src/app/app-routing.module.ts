@@ -8,8 +8,8 @@ import {EventRegComponent} from "./event-reg/event-reg.component";
 import { AllEventsComponent } from "./all-events/all-events.component";
 import { EditProfileComponent } from "./editProfile/editProfile.component";
 import {AboutUsComponent} from "./about-us/about-us.component";
-import {CreateEventComponent} from "./create-event/create-event.component"
-
+import {EventCreateComponent} from "./event-create/event-create.component"
+import { TermsAndConditionsComponent } from './terms-and-conditions/terms-and-conditions.component';
 
 const routes: Routes = [
   {
@@ -37,22 +37,25 @@ const routes: Routes = [
     path: 'all-events',
     component: AllEventsComponent
   },
+  {
+    path: 'event-create',
+    component: EventCreateComponent
+  },
 
   {
     path: 'about-us',
     component: AboutUsComponent
   },
-
   {
-    path: 'create-event',
-    component: CreateEventComponent
+    path: 'termsAndConditions',
+    component: TermsAndConditionsComponent
   },
-
   {
     path: '',
     redirectTo: 'index',
     pathMatch: 'full'
   }
+
 ];
 
 @NgModule({

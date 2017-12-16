@@ -1,13 +1,13 @@
 export interface Event{
     name:string;
     venue:string;
-    host: {name:String,email:String,profileIcon:String};
+    host: {name:string,email:string,profileIcon:String};
     description:number;
     hobbies : any[];
     date: Date;
     duration:String;
     entryFee: number;
-    attendee: [ 
+    attendee: [
       {
         email:String,
         name:String,
@@ -30,4 +30,7 @@ export interface Event{
       }
     ]
   }
-  
+export interface Hobby{
+  name:String
+}
+

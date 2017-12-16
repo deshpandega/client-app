@@ -141,12 +141,12 @@ body div{
   color: #F05F40;
   background: #eff2f5;
   border-radius: 20px;
-  padding: 5px 30px;
+  padding: 5px 16px;
   font-size: 20px;
   margin-right: 5px;
   margin-top: 5px;
   display: inline-block;
-  width:90%;
+  width:100%;
 }
 .synopsis-wrapper .details {
   min-height: 1px;
@@ -592,4 +592,8 @@ blockquote, q {
   text-decoration: none;
   text-transform: uppercase;
   letter-spacing: 2px;
+}
+
+.member-name{
+  width:95%;
 }

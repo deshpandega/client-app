@@ -81,6 +81,49 @@ export class EditProfileComponent  {
     this.currentDiv = 'payment';
     console.log(this.currentDiv + ' is the current value');
   }
+
+  public token : any;
+    user: User;
+
+  //public person : any;
+  // Constructor to inject things
+  constructor(private router : Router ,public http: Http, private _sharedService: SharedService){
+    this.token = this._sharedService.token;
+     this.authenticateToken();
+  }
+
+authenticateToken(){
+    console.log("myToken : edit profile "+ this.token);
+    const sendData = {
+      "generatedToken": this.token
+    };
+
+    const headers = new Headers();
+    headers.append('Content-Type', 'application/json');
+
+    const requestOptions = new RequestOptions({headers: headers});
+
+    //Check proxy file for correct API call
+    this.http.post('/session', sendData, requestOptions)
+      .toPromise().then((res: Response)=>{
+      console.log(res);
+      if(res.status == 200){
+        this.user = res.json().user;
+        console.log("my user" + this.user);
+        console.log("my user name " + this.user.name);
+        this.token = this.user.token;
+
+        this._sharedService.setToken(this.token);
+        this._sharedService.setUser(this.user);
+      }
+    }).catch((error)=>{
+      console.log("invalid cred -> "+error.json());
+
+      this._sharedService.setToken(' blank token ');
+      this._sharedService.setUser(null);
+    });
+  }
+
   openDiv() {
     this.currentDiv = 'profile';
     console.log( ' ------ ' + this.currentDiv);
