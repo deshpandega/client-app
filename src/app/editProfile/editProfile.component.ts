@@ -24,24 +24,20 @@ export class EditProfileComponent  {
   public constructor (private formBuilder: FormBuilder, private router : Router ,private _sharedService: SharedService, public http: Http) {
     this.token = this._sharedService.token;
     this.authenticateToken();
+    this.buildForm();
   }
 
   buildForm(){
-    console.log("------------------------->>> "+this.user.name);
     this.editProfileForm=this.formBuilder.group({
-      name: this.formBuilder.control(this.user.name, Validators.required),
-      aboutme: this.formBuilder.control(this.user.aboutme, Validators.required),
-      dob: this.formBuilder.control(this.user.dob),
+      name: this.formBuilder.control('', Validators.required),
+      aboutme: this.formBuilder.control('', Validators.required),
+      dob: this.formBuilder.control(''),
       image: this.formBuilder.control('')
     });
     this.fullNameControl = this.editProfileForm.get('name');
-    this.fullNameControl.valueChanges.subscribe(value=>{
-      this.user.name
-    });
+    this.fullNameControl.valueChanges.subscribe(value=>{  });
 
-    this.editProfileForm.patchValue({
-      fullNameControl:this.user.name
-    })
+    
   };
 
   authenticateToken(){
@@ -63,7 +59,10 @@ export class EditProfileComponent  {
 
         // this._sharedService.setToken(this.token);
         // this._sharedService.setUser(this.user);
-        this.buildForm();
+        // this.buildForm();
+        this.editProfileForm.patchValue({
+          fullNameControl:this.user.name
+        });
       }
     }).catch((error)=>{
 
@@ -73,7 +72,34 @@ export class EditProfileComponent  {
   }
 
   editDetails(){
+    this.user.name = this.editProfileForm.get('name').value;
+    this.user.aboutme = this.editProfileForm.get('aboutme').value;
+    this.user.dob = this.editProfileForm.get('dob').value;
+
+    console.log(this.user.dob);
     
+    const sendData = {
+      "user": this.user,
+      task:'editUser'
+    };
+
+    const headers = new Headers();
+    headers.append('Content-Type', 'application/json');
+
+    const requestOptions = new RequestOptions({headers: headers});
+
+    //Check proxy file for correct API call
+     this.http.post('/addHobbies', sendData, requestOptions)
+      .toPromise().then((res: Response)=>{
+      console.log(res);
+      if(res.status == 200){
+        console.log(res+ " user modified");
+
+        this.router.navigate(['/profile']);
+      }
+    }).catch((error)=>{
+      console.log("invalid cred -> "+error);
+    });
   }
 
   managePayment(){

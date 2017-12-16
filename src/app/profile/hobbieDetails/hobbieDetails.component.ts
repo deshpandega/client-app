@@ -96,7 +96,7 @@ export class HobbieDetails{
     const sendData = {
       "user":userData,
       "hobbies":hobbies,
-      taks:'addHobby'
+      task:'addHobby'
     };
 
     const headers = new Headers();
