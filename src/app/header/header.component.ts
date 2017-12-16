@@ -27,7 +27,9 @@ export class HeaderComponent{
         this.user = user;
         console.log(user);
         if(user == null || user == undefined){
-          this.router.navigate(['/index']);
+          if(this.router.url !== '/event-reg'){
+            this.router.navigate(['/index']);
+          }
         }
       })
   }
