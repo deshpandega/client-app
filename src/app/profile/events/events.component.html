@@ -16,8 +16,8 @@
         <div class="team-des" style="text-align: center;">
           <h3>Your registered events</h3>
           <ul class="ulconfig">
-            <li class="liconfig">item1</li>
-            <li class="liconfig">item1</li>
+            <li class="liconfig" *ngFor="let event of events">{{event.name}}</li>
+            <!--<li class="liconfig">item1</li>-->
           </ul>
         </div>
       </div>
@@ -25,8 +25,8 @@
         <div class="team-des" style="text-align: center;">
           <h3>Your own events</h3>
           <ul class="ulconfig">
-            <li class="liconfig">item1</li>
-            <li class="liconfig">item1</li>
+            <li class="liconfig" *ngFor="let event of hostedevents">{{event.name}}</li>
+            <!--<li class="liconfig">item1</li>-->
           </ul>
         </div>
       </div>

@@ -2,6 +2,7 @@ import {Component} from '@angular/core';
 import {SharedService} from "../shared/shared.service";
 import {OnInit} from '@angular/core';
 import {User} from "../shared/user.model";
+
 @Component({
   selector: 'header-nav',
   templateUrl: './header.component.html',
